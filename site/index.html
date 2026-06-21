@@ -2,10 +2,138 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="refresh" content="0; url=heatmap.html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chennai Booth Analytics</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<p>Redirecting to <a href="heatmap.html">heatmap.html</a>…</p>
+<div class="topbar">
+  <h1>Chennai Booth Analytics</h1>
+  <div class="stats" id="stats"></div>
+</div>
+<div class="app">
+  <div id="map"></div>
+  <div class="sidebar">
+    <div class="sb-sticky">
+      <div class="sb-sticky-pad">
+        <h3>Constituency</h3>
+        <div id="acBtns" class="ac-row"></div>
+      </div>
+      <div class="sb-sticky-pad">
+        <div id="donut" class="donut-section"></div>
+      </div>
+    </div>
+    <div class="sb-scroll">
+      <h3>Domain</h3>
+      <div class="mode-grid">
+        <button class="domain-btn active" data-domain="votes">🗳 votes</button>
+        <button class="domain-btn" data-domain="demo">👥 demographics</button>
+      </div>
+      <div id="votesControls">
+        <div class="section">
+          <h3>Election cycle</h3>
+          <div id="cycleBtns" class="cycle-row"></div>
+        </div>
+        <div class="section">
+          <h3>Votes view</h3>
+          <div class="mode-grid">
+            <button class="vmode-btn active" data-vmode="winner">winner</button>
+            <button class="vmode-btn" data-vmode="share">alliance share</button>
+            <button class="vmode-btn" data-vmode="margin">lead margin</button>
+          </div>
+        </div>
+        <div id="shareControls" class="section" style="display:none">
+          <h3>Alliance</h3>
+          <div id="allianceBtns"></div>
+        </div>
+      </div>
+      <div id="demoControls" style="display:none">
+        <div class="section">
+          <h3>Demographics view</h3>
+          <div class="mode-grid">
+            <button class="dmode-btn active" data-dmode="dominant">dominant age</button>
+            <button class="dmode-btn" data-dmode="cohort">cohort share</button>
+            <button class="dmode-btn" data-dmode="gender">gender ratio</button>
+            <button class="dmode-btn" data-dmode="youth">youth/elderly</button>
+            <button class="dmode-btn" data-dmode="absolute">absolute count</button>
+            <button class="dmode-btn" data-dmode="bandskew">band gender skew</button>
+          </div>
+        </div>
+        <div id="cohortControls" class="section" style="display:none">
+          <h3>Cohort</h3>
+          <div style="display:flex;gap:14px">
+            <div style="flex:1">
+              <div class="mini">SEX</div>
+              <label><input type="radio" name="sex" value="All" checked> All</label>
+              <label><input type="radio" name="sex" value="Male"> Male</label>
+              <label><input type="radio" name="sex" value="Female"> Female</label>
+            </div>
+            <div style="flex:1.4">
+              <div class="mini">AGE</div>
+              <div id="ageBtns"></div>
+              <label><input type="radio" name="age" value="All"> all ages</label>
+            </div>
+          </div>
+        </div>
+        <div id="youthControls" class="section" style="display:none">
+          <h3>Age axis</h3>
+          <label><input type="radio" name="yaxis" value="youth_share" checked> Youth (&lt;30)</label>
+          <label><input type="radio" name="yaxis" value="elderly_share"> Elderly (60+)</label>
+        </div>
+        <div id="absControls" class="section" style="display:none">
+          <h3>Count of</h3>
+          <div id="absBtns"></div>
+        </div>
+        <div id="skewControls" class="section" style="display:none">
+          <h3>Age band</h3>
+          <div id="skewBtns"></div>
+        </div>
+      </div>
+      <div class="section">
+        <h3 id="legendTitle">Legend</h3>
+        <div id="legendBody"></div>
+      </div>
+      <div class="section">
+        <h3>Summary</h3>
+        <div class="cards" id="cards"></div>
+        <div class="toplist" id="toplist"></div>
+      </div>
+      <div class="section">
+        <h3>Layers</h3>
+        <div class="toggle-row">
+          <label><input type="checkbox" id="baseToggle"> satellite</label>
+          <label><input type="checkbox" id="showOutline" checked> outlines</label>
+          <label><input type="checkbox" id="showLabels"> labels</label>
+        </div>
+        <div class="tier-note" id="tierNote"></div>
+      </div>
+      <div class="section">
+        <h3>Data &amp; Limitations</h3>
+        <div class="limits-note">
+          <div><b>Demo</b> = Electoral Roll (registered voters). <b>Votes</b> = Form 20 (EVM ballots). Independent datasets.</div>
+          <div><b>Voronoi cells</b> are approximations, not official booth boundaries.</div>
+          <div><b>Centroid</b> booths (faded) have unknown precise locations.</div>
+          <div><b>2024</b> is Lok Sabha (Chennai Central PC), not Assembly.</div>
+          <div><b>No postal ballots</b> in booth-level data.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="info-panel" id="infoPanel">
+    <div class="mini" style="color:var(--accent);margin-bottom:6px">BOOTH DETAIL</div>
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h4 id="infoTitle"></h4>
+      <button id="closeInfo" class="xbtn">&times;</button>
+    </div>
+    <div class="sub" id="infoSub"></div>
+    <div class="src-label">👥 ELECTORAL ROLL &mdash; Age &times; gender distribution</div>
+    <div class="pyramid" id="pyramid"></div>
+    <table id="infoTable"></table>
+    <div id="infoVotes"></div>
+  </div>
+</div>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
 </body>
 </html>

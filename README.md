@@ -26,10 +26,10 @@ This isn't a prediction tool or a partisan project. It's a transparency tool —
 
 ### Getting Started
 
-1. **Open the map** — Simply open `site/heatmap.html` in a modern browser (Chrome recommended)
+1. **Open the map** — Simply open `site/index.html` in a modern browser (Chrome recommended)
 2. **Explore** — The map (left) shows every booth as a clickable polygon. The sidebar (right) has the analytics.
 
-> 💡 **Tip:** For best performance: `cd site && python -m http.server 8000`, then open `http://localhost:8000/heatmap.html`
+> 💡 **Tip:** For best performance: `cd site && python -m http.server 8000`, then open `http://localhost:8000/`
 
 ### 🗺️ The Map
 
@@ -160,9 +160,12 @@ No build step, no server, no framework. Just Python → HTML.
 ```
 harbour/
 ├── site/
-│   └── heatmap.html              # 🗺️ Main deliverable (self-contained, ~950 KB)
+│   ├── index.html              # 🗺️ Main app (loads data.json + app.js + style.css)
+│   ├── style.css               # Dark theme stylesheet
+│   ├── app.js                  # Interactive Leaflet map + sidebar logic
+│   └── data.json               # Generated data payload (~790 KB)
 ├── scripts/
-│   ├── build_heatmap.py          # Unified multi-AC heatmap builder
+│   ├── build_data.py           # Data pipeline (CSV → data.json)
 │   ├── ac_config.py              # AC registry (add constituencies here)
 │   ├── alliances.py              # Party → alliance mapping + colors
 │   ├── parse_form20.py           # Form 20 PDF → structured votes CSV
@@ -189,9 +192,9 @@ harbour/
 
 ```bash
 # Simply open in a browser
-start site/heatmap.html        # Windows
-open site/heatmap.html         # macOS
-xdg-open site/heatmap.html     # Linux
+start site/index.html          # Windows
+open site/index.html           # macOS
+xdg-open site/index.html       # Linux
 ```
 
 ### Option 2: Serve Locally (Recommended)
@@ -199,7 +202,7 @@ xdg-open site/heatmap.html     # Linux
 ```bash
 cd site
 python -m http.server 8000
-# Open http://localhost:8000/heatmap.html
+# Open http://localhost:8000/
 ```
 
 ### Option 3: Rebuild from Source
@@ -209,9 +212,9 @@ python -m http.server 8000
 pip install scipy shapely numpy
 
 # Run the build pipeline
-python scripts/build_heatmap.py
+python scripts/build_data.py
 
-# Output: site/heatmap.html
+# Output: site/data.json
 ```
 
 ### Adding a New Constituency
@@ -230,7 +233,7 @@ python scripts/build_heatmap.py
 
 2. Prepare data files: `booth_coords_ac017.csv`, `votes_ac017_{year}.csv`, `candidates_ac017_{year}.json`
 
-3. Rebuild: `python scripts/build_heatmap.py`
+3. Rebuild: `python scripts/build_data.py`
 
 The AC selector, donut chart, summaries, and map all update automatically.
 
