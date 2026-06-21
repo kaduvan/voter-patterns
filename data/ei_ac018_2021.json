@@ -1,0 +1,140 @@
+{
+  "year": 2021,
+  "n_booths": 182,
+  "alliances": [
+    "Independent"
+  ],
+  "alliance_vote_shares": {
+    "Independent": 1.0413
+  },
+  "intervals": {
+    "18-21": {
+      "Independent": {
+        "alpha": 0.8222,
+        "beta": 20.6861,
+        "r2": 0.0036,
+        "se_beta": 25.6938,
+        "n": 182,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "22-29": {
+      "Independent": {
+        "alpha": 1.5313,
+        "beta": 0.3481,
+        "r2": 0.0,
+        "se_beta": 10.4916,
+        "n": 182,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "30-39": {
+      "Independent": {
+        "alpha": 3.4951,
+        "beta": -9.2635,
+        "r2": 0.0059,
+        "se_beta": 8.9747,
+        "n": 182,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "40-49": {
+      "Independent": {
+        "alpha": -3.072,
+        "beta": 19.717,
+        "r2": 0.0228,
+        "se_beta": 9.6199,
+        "n": 182,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "50-59": {
+      "Independent": {
+        "alpha": 1.7049,
+        "beta": -0.6379,
+        "r2": 0.0,
+        "se_beta": 10.6589,
+        "n": 182,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "60-69": {
+      "Independent": {
+        "alpha": 3.6569,
+        "beta": -17.8388,
+        "r2": 0.0127,
+        "se_beta": 11.7117,
+        "n": 182,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "70+": {
+      "Independent": {
+        "alpha": 1.5157,
+        "beta": 1.0045,
+        "r2": 0.0,
+        "se_beta": 13.2011,
+        "n": 182,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "Under-30": {
+      "Independent": {
+        "alpha": 1.124,
+        "beta": 2.5103,
+        "r2": 0.0005,
+        "se_beta": 8.5423,
+        "n": 182,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    },
+    "60+": {
+      "Independent": {
+        "alpha": 2.7449,
+        "beta": -6.3761,
+        "r2": 0.0043,
+        "se_beta": 7.1948,
+        "n": 182,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      }
+    }
+  },
+  "method": "Goodman ecological regression",
+  "note": "beta = party vote-share gained per unit of cohort presence; estimated_support = predicted party share in a 100%-cohort booth. R^2 is the honesty signal (low R^2 -> weak inference). Illustrative association, NOT proven individual vote choice."
+}

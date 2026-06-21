@@ -1,0 +1,193 @@
+part_no,lat,lon,tier,source,street,street_key,locality,locality_key,door_no,pincode
+1,13.101812,80.277596,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+2,13.101812,80.279934,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+3,13.098572,80.279338,street,nominatim:street,Mint Street,mint street,Kondithope,kondithope,508,600079
+4,13.098572,80.280733,street,nominatim:street,Mint Street,mint street,Kondithope,kondithope,508,600079
+5,13.101812,80.279293,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+6,13.101812,80.279083,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+7,13.101812,80.279758,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+8,13.101812,80.278379,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+9,13.101812,80.279265,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+10,13.101812,80.280502,locality,nominatim:locality,Saravanan Street,saravanan street,Kondithope,kondithope,2,600079
+11,13.101715,80.277974,locality,nominatim:locality,Kondal Street,kondal street,Kondithope,kondithope,9,600079
+12,13.101715,80.28005,locality,nominatim:locality,Kondal Street,kondal street,Kondithope,kondithope,9,600079
+13,13.101715,80.278135,locality,nominatim:locality,Kondal Street,kondal street,Kondithope,kondithope,9,600079
+14,13.101715,80.279905,locality,nominatim:locality,Kondal Street,kondal street,Kondithope,kondithope,9,600079
+15,13.099389,80.280225,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,199,600079
+16,13.099389,80.280714,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,199,600079
+17,13.099389,80.280737,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,199,600079
+18,13.099389,80.28092,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,199,600079
+19,13.099664,80.278217,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,130,600079
+20,13.099664,80.279473,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,130,600079
+21,13.099191,80.277243,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,225,600079
+22,13.099191,80.276747,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,225,600079
+23,13.099191,80.278835,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,225,600079
+24,13.099191,80.276435,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,225,600079
+25,13.099191,80.277368,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,225,600079
+26,13.099664,80.277963,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,130,600079
+27,13.099664,80.276824,street,nominatim:street,Amman Koil Street,amman koil street,Kondithope,kondithope,130,600079
+28,13.088987,80.278391,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+29,13.088987,80.277748,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+30,13.088987,80.276719,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+31,13.088987,80.279505,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+32,13.089367,80.277523,locality,nominatim:locality,Annapillai Street,annapillai street,Sowcarpet,sowcarpet,87,600079
+33,13.089367,80.277912,locality,nominatim:locality,Annapillai Street,annapillai street,Sowcarpet,sowcarpet,87,600079
+34,13.089367,80.278711,locality,nominatim:locality,Annapillai Street,annapillai street,Sowcarpet,sowcarpet,87,600079
+35,13.088987,80.279019,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+36,13.088987,80.276797,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+37,13.099345,80.279369,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,209,600079
+38,13.099345,80.280203,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,209,600079
+39,13.099345,80.281214,street,nominatim:street,Mint Street,mint street,Sowcarpet,sowcarpet,209,600079
+40,13.102644,80.281042,street,nominatim:street,Sevenwells Street,sevenwells street,Sevenwells,sevenwells,12,600001
+41,13.101312,80.283989,locality,nominatim:locality,Portuguese Church Street,portuguese church street,Sevenwells,sevenwells,178,600001
+42,13.101312,80.283055,locality,nominatim:locality,Portuguese Church Street,portuguese church street,Sevenwells,sevenwells,178,600001
+43,13.101312,80.283547,locality,nominatim:locality,Portuguese Church Street,portuguese church street,Sevenwells,sevenwells,178,600001
+44,13.101312,80.283482,locality,nominatim:locality,Portuguese Church Street,portuguese church street,Sevenwells,sevenwells,178,600001
+45,13.101312,80.280913,locality,nominatim:locality,Portuguese Church Street,portuguese church street,Sevenwells,sevenwells,178,600001
+46,13.102644,80.281536,street,nominatim:street,Sevenwells Street,sevenwells street,Sevenwells,sevenwells,12,600001
+47,13.102644,80.281302,street,nominatim:street,Sevenwells Street,sevenwells street,Sevenwells,sevenwells,12,600001
+48,13.102644,80.28304,street,nominatim:street,Sevenwells Street,sevenwells street,Sevenwells,sevenwells,12,600001
+49,13.102671,80.282654,locality,nominatim:locality,Shanmugam Street,shanmugam street,Sevenwells,sevenwells,10,600001
+50,13.099905,80.283304,street,nominatim:street,St. Xavier Street,st xavier street,Sevenwells,sevenwells,91,600001
+51,13.099905,80.284648,street,nominatim:street,St. Xavier Street,st xavier street,Sevenwells,sevenwells,91,600001
+52,13.102446,80.281397,locality,nominatim:locality,Shanmugam Street,shanmugam street,Sevenwells,sevenwells,28,600001
+53,13.099905,80.284836,street,nominatim:street,St. Xavier Street,st xavier street,Sevenwells,sevenwells,91,600001
+54,13.102766,80.283211,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+55,13.102766,80.281122,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+56,13.102766,80.281463,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+57,13.102766,80.283154,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+58,13.102766,80.282815,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+59,13.102766,80.283189,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+60,13.102766,80.281356,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+61,13.102766,80.28374,locality,nominatim:locality,Pattu Rasappa Street,pattu rasappa street,Sevenwells,sevenwells,3,600001
+62,13.101928,80.282101,locality,nominatim:locality,Porchuges Church Street,porchuges church street,Sevenwells,sevenwells,81,600001
+63,13.101928,80.281223,locality,nominatim:locality,Porchuges Church Street,porchuges church street,Sevenwells,sevenwells,81,600001
+64,13.101928,80.282322,locality,nominatim:locality,Porchuges Church Street,porchuges church street,Sevenwells,sevenwells,81,600001
+65,13.101928,80.281283,locality,nominatim:locality,Porchuges Church Street,porchuges church street,Sevenwells,sevenwells,81,600001
+66,13.09639,80.282505,street,nominatim:street,Acharappan Street,acharappan street,Sevenwells,sevenwells,24,600001
+67,13.09639,80.283165,street,nominatim:street,Acharappan Street,acharappan street,Sevenwells,sevenwells,24,600001
+68,13.09639,80.283457,street,nominatim:street,Acharappan Street,acharappan street,Sevenwells,sevenwells,24,600001
+69,13.09639,80.282489,street,nominatim:street,Acharappan Street,acharappan street,Sevenwells,sevenwells,24,600001
+70,13.09639,80.284221,street,nominatim:street,Acharappan Street,acharappan street,Sevenwells,sevenwells,24,600001
+71,13.101928,80.283999,locality,nominatim:locality,Porchuges Church Street,porchuges church street,Sevenwells,sevenwells,81,600001
+72,13.09639,80.283915,street,nominatim:street,Acharappan Street,acharappan street,Sevenwells,sevenwells,24,600001
+73,13.0921,80.2822,ac_centroid,ac018_centroid,Prakasam Salai,prakasam salai,,,1,600108
+74,13.0921,80.2822,ac_centroid,ac018_centroid,Prakasam Salai,prakasam salai,,,1,600108
+75,13.0921,80.2822,ac_centroid,ac018_centroid,Prakasam Salai,prakasam salai,,,1,600108
+76,13.0921,80.2822,ac_centroid,ac018_centroid,Prakasam Salai,prakasam salai,,,1,600108
+77,13.106175,80.285693,locality,nominatim:locality,Chapel Street,chapel street,Muthaiyalpet,muthaiyalpet,1,600001
+78,13.106175,80.285689,locality,nominatim:locality,Chapel Street,chapel street,Muthaiyalpet,muthaiyalpet,1,600001
+79,13.106175,80.288186,locality,nominatim:locality,Chapel Street,chapel street,Muthaiyalpet,muthaiyalpet,1,600001
+80,13.106175,80.287991,locality,nominatim:locality,Chapel Street,chapel street,Muthaiyalpet,muthaiyalpet,1,600001
+81,13.106175,80.286935,locality,nominatim:locality,Chapel Street,chapel street,Muthaiyalpet,muthaiyalpet,1,600001
+82,13.094117,80.286642,street,nominatim:street,Broadway,broadway,Broadway,broadway,28,600108
+83,13.094117,80.286326,street,nominatim:street,Broadway,broadway,Broadway,broadway,28,600108
+84,13.094117,80.284251,street,nominatim:street,Broadway,broadway,Broadway,broadway,28,600108
+85,13.0921,80.2822,ac_centroid,ac018_centroid,Pidariyar Koil Street,pidariyar koil street,,,37,600001
+86,13.0921,80.2822,ac_centroid,ac018_centroid,Pidariyar Koil Street,pidariyar koil street,,,37,600001
+87,13.0921,80.2822,ac_centroid,ac018_centroid,Pidariyar Koil Street,pidariyar koil street,,,36,600001
+88,13.104726,80.287331,street,nominatim:street,Saiva Muthiah Street,saiva muthiah street,Muthaiyalpet,muthaiyalpet,26,600001
+89,13.104726,80.289527,street,nominatim:street,Saiva Muthiah Street,saiva muthiah street,Muthialpet,muthialpet,26,600001
+90,13.104726,80.289035,street,nominatim:street,Saiva Muthiah Street,saiva muthiah street,Muthaiyalpet,muthaiyalpet,26,600001
+91,13.104726,80.28806,street,nominatim:street,Saiva Muthiah Street,saiva muthiah street,Muthaiyalpet,muthaiyalpet,26,600001
+92,13.104726,80.28994,street,nominatim:street,Saiva Muthiah street,saiva muthiah street,Muthialpet,muthialpet,26,600001
+93,13.104726,80.288903,street,nominatim:street,Saiva Muthiah Street,saiva muthiah street,Muthaiyalpet,muthaiyalpet,26,600001
+94,13.105972,80.287103,locality,nominatim:locality,Salaivinayagar Koil Street,salaivinayagar koil street,Muthaiyalpet,muthaiyalpet,16,600001
+95,13.105972,80.287889,locality,nominatim:locality,Salaivinayagar Koil Street,salaivinayagar koil street,Muthaiyalpet,muthaiyalpet,16,600001
+96,13.100653,80.291063,street,nominatim:street,Coral Merchant Street,coral merchant street,,,4,600001
+97,13.106175,80.286846,locality,nominatim:locality,Venkat Ayyar Street,venkat ayyar street,Muthaiyalpet,muthaiyalpet,1,600001
+98,13.106175,80.285355,locality,nominatim:locality,Venkat Ayyar Street,venkat ayyar street,Muthaiyalpet,muthaiyalpet,1,600001
+99,13.099256,80.289348,street,nominatim:street,Ramasamy Street,ramasamy street,Muthaialpet,muthaialpet,95,600001
+100,13.099256,80.288053,street,nominatim:street,Ramasamy Street,ramasamy street,Muthaialpet,muthaialpet,95,600001
+101,13.099256,80.289423,street,nominatim:street,Ramasamy Street,ramasamy street,Muthaialpet,muthaialpet,95,600001
+102,13.099209,80.291071,street,nominatim:street,Linghi Street,linghi street,Muthaiyalpet,muthaiyalpet,126,600001
+103,13.094117,80.286563,street,nominatim:street,Broadway,broadway,Broadway,broadway,28,600108
+104,13.099158,80.290168,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakhadhi,vallal seethakhadhi,7,600001
+105,13.099158,80.290514,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakhadhi,vallal seethakhadhi,7,600001
+106,13.089922,80.290914,street,nominatim:street,North Beach Road,north beach road,Vallal Seethakathi,vallal seethakathi,,600001
+107,13.099158,80.289719,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakhadhi,vallal seethakhadhi,7,600001
+108,13.099209,80.290127,street,nominatim:street,Linghi Street,linghi street,Muthaiyalpet,muthaiyalpet,126,600001
+109,13.089922,80.291035,street,nominatim:street,NorthBeach Road,northbeach road,Vallal Seethakathi,vallal seethakathi,,600001
+110,13.098135,80.290815,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+111,13.098135,80.29123,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+112,13.098135,80.291018,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+113,13.098135,80.289833,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+114,13.098135,80.290399,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+115,13.098135,80.289397,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+116,13.098135,80.292279,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+117,13.098135,80.291174,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+118,13.098135,80.289555,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+119,13.098135,80.290306,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+120,13.098135,80.291782,street,nominatim:street,Angappan Street,angappan street,Vallal Seethakathi,vallal seethakathi,113,600001
+121,13.0921,80.2822,ac_centroid,ac018_centroid,Kamarajar Salai,kamarajar salai,,,4,600009
+122,13.092168,80.287414,street,nominatim:street,Thambu Street,thambu street,Muthaiyalpet,muthaiyalpet,167,600001
+123,13.092168,80.289593,street,nominatim:street,Thambu Street,thambu street,Muthaiyalpet,muthaiyalpet,167,600001
+124,13.092755,80.284808,street,nominatim:street,Broadway,broadway,Broadway,broadway,230,600001
+125,13.0921,80.2822,ac_centroid,ac018_centroid,Kamarajar Salai,kamarajar salai,,,4,600009
+126,13.0921,80.2822,ac_centroid,ac018_centroid,Kamarajar Salai,kamarajar salai,,,4,600009
+127,13.092412,80.288474,street,nominatim:street,Mc. Leans Street,mc leans street,Kachaleeswarar,kachaleeswarar,3,600001
+128,13.092412,80.287176,street,nominatim:street,Mc Leans Street,mc leans street,Kachaleeswarar,kachaleeswarar,3,600001
+129,13.094464,80.287235,street,nominatim:street,Aremenian Street,aremenian street,Kachaleeswarar,kachaleeswarar,110,600001
+130,13.092412,80.28543,street,nominatim:street,Mc. Leans Street,mc leans street,Kachaleeswarar,kachaleeswarar,3,600001
+131,13.092168,80.287233,street,nominatim:street,Thambu Street,thambu street,Muthialpet,muthialpet,167,600001
+132,13.104412,80.286227,street,nominatim:street,Mint Road,mint road,,,284,600001
+133,13.104412,80.284925,street,nominatim:street,Mint Road,mint road,,,284,600001
+134,13.104412,80.28657,street,nominatim:street,Mint Road,mint road,,,284,600001
+135,13.090282,80.277433,locality,nominatim:locality,Aadhiyappa Street,aadhiyappa street,Sowcarpet,sowcarpet,1,600001
+136,13.090282,80.27939,locality,nominatim:locality,Aadhiyappa Street,aadhiyappa street,Sowcarpet,sowcarpet,1,600001
+137,13.090282,80.278378,locality,nominatim:locality,Aadhiyappa Street,aadhiyappa street,Sowcarpet,sowcarpet,1,600001
+138,13.090282,80.279651,locality,nominatim:locality,Aadhiyappa Street,aadhiyappa street,Sowcarpet,sowcarpet,1,600001
+139,13.090282,80.277166,locality,nominatim:locality,Aadhiyappa Street,aadhiyappa street,Sowcarpet,sowcarpet,1,600001
+140,13.095805,80.281538,street,nominatim:street,Narayana Street,narayana street,Sowcarpet,sowcarpet,9,600079
+141,13.095805,80.284221,street,nominatim:street,Narayana Street,narayana street,Sowcarpet,sowcarpet,9,600079
+142,13.095805,80.284431,street,nominatim:street,Narayana Street,narayana street,Sowcarpet,sowcarpet,9,600079
+143,13.095805,80.284569,street,nominatim:street,Narayana Street,narayana street,Sowcarpet,sowcarpet,9,600079
+144,13.095805,80.281547,street,nominatim:street,Narayana Street,narayana street,Sowcarpet,sowcarpet,9,600079
+145,13.088599,80.279233,locality,nominatim:locality,Govindappan Street,govindappan street,Sowcarpet,sowcarpet,223,600079
+146,13.088599,80.278376,locality,nominatim:locality,Govindappan Street,govindappan street,Sowcarpet,sowcarpet,223,600079
+147,13.095915,80.284021,street,nominatim:street,Davidson Street,davidson street,Sowcarpet,sowcarpet,27,600001
+148,13.090282,80.280092,locality,nominatim:locality,Aadhiyappa Street,aadhiyappa street,Sowcarpet,sowcarpet,1,600001
+149,13.088987,80.279282,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+150,13.07906,80.266578,street,nominatim:street,Vepery Road,vepery road,Elephant Gate,elephant gate,32,600003
+151,13.07906,80.265865,street,nominatim:street,Vepery Road,vepery road,Elephant Gate,elephant gate,32,600003
+152,13.07906,80.266594,street,nominatim:street,Vepery Road,vepery road,Elephant Gate,elephant gate,32,600003
+153,13.07906,80.264995,street,nominatim:street,Vepery Road,vepery road,Elephant Gate,elephant gate,32,600003
+154,13.09403,80.271012,locality,nominatim:locality,Tulasingam Street,tulasingam street,Elephantgate,elephantgate,17,600079
+155,13.09328,80.27732,street,nominatim:street,General Muthiah Street,general muthiah street,Elephantgate,elephantgate,19,600079
+156,13.09328,80.276628,street,nominatim:street,General Muthiah Street,general muthiah street,Elephantgate,elephantgate,19,600079
+157,13.093219,80.276163,street,nominatim:street,General Muthiah Street,general muthiah street,Elephantgate,elephantgate,24,600079
+158,13.093219,80.27598,street,nominatim:street,General Muthiah Street,general muthiah street,Elephantgate,elephantgate,24,600079
+159,13.094245,80.269188,locality,nominatim:locality,Ramanujar Street,ramanujar street,Elephantgate,elephantgate,1,600079
+160,13.094245,80.267571,locality,nominatim:locality,Ramanujar Street,ramanujar street,Elephantgate,elephantgate,1,600079
+161,13.0921,80.2822,ac_centroid,ac018_centroid,Adhiyappan Street,adhiyappan street,,,94,600079
+162,13.0921,80.2822,ac_centroid,ac018_centroid,Adhiyappan Street,adhiyappan street,,,94,600079
+163,13.0921,80.2822,ac_centroid,ac018_centroid,Adhiyappan Street,adhiyappan street,,,94,600079
+164,13.088987,80.279382,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+165,13.088987,80.278512,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+166,13.088987,80.278738,locality,nominatim:locality,V.O.C Salai,v o c salai,Sowcarpet,sowcarpet,143,600079
+167,13.098577,80.280639,street,nominatim:street,Mint Street,mint street,Edapalayam,edapalayam,505,600003
+168,13.098577,80.280189,street,nominatim:street,Mint Street,mint street,Edapalayam,edapalayam,505,600003
+169,13.0921,80.2822,ac_centroid,ac018_centroid,Ponnappa Street,ponnappa street,Edapalayam,edapalayam,34,600003
+170,13.0921,80.2822,ac_centroid,ac018_centroid,Ponnappa Street,ponnappa street,Edapalayam,edapalayam,34,600003
+171,13.0921,80.2822,ac_centroid,ac018_centroid,Ravanaiyar Street,ravanaiyar street,Edapalayam,edapalayam,1,600003
+172,13.0921,80.2822,ac_centroid,ac018_centroid,Ravanaiyar Street,ravanaiyar street,Edapalayam,edapalayam,1,600003
+173,13.087631,80.271369,locality,nominatim:locality,Ponnappa Street,ponnappa street,Park Town,park town,42,600003
+174,13.0921,80.2822,ac_centroid,ac018_centroid,EK Agraharam Street,ek agraharam street,,,19,600003
+175,13.0921,80.2822,ac_centroid,ac018_centroid,Ekambaraeswarar Agraharam Street,ekambaraeswarar agraharam street,Edapalayam,edapalayam,19,600003
+176,13.0921,80.2822,ac_centroid,ac018_centroid,Ekambaraeswarar Agraharam Street,ekambaraeswarar agraharam street,Edapalayam,edapalayam,19,600003
+177,13.0921,80.2822,ac_centroid,ac018_centroid,EK Agraharam Street,ek agraharam street,,,19,600003
+178,13.088079,80.271237,locality,nominatim:locality,Narayana Lane,narayana lane,Park Town,park town,5,600003
+179,13.0921,80.2822,ac_centroid,ac018_centroid,EK Agraharam Street,ek agraharam street,,,19,600003
+180,13.077884,80.279439,locality,nominatim:locality,,,Island Ground,island ground,,600002
+181,13.077884,80.278945,locality,nominatim:locality,,,Island Ground,island ground,,600002
+182,13.077884,80.276876,locality,nominatim:locality,,,Island Ground,island ground,,600002
+183,13.077884,80.279545,locality,nominatim:locality,,,Island Ground,island ground,,600002
+184,13.077884,80.276303,locality,nominatim:locality,,,Island Ground,island ground,,600002
+185,13.077884,80.279675,locality,nominatim:locality,,,Island Ground,island ground,,600002
+186,13.077884,80.277101,locality,nominatim:locality,,,Island Ground,island ground,,600002
+187,13.077001,80.277428,street,nominatim:street,Anna Salai,anna salai,,,71,600002
+188,13.077001,80.278723,street,nominatim:street,Anna Salai,anna salai,,,71,600002
+189,13.077001,80.278961,street,nominatim:street,Anna Salai,anna salai,,,71,600002
+190,13.077001,80.277294,street,nominatim:street,Anna Salai,anna salai,,,71,600002
+191,13.077001,80.277991,street,nominatim:street,Anna Salai,anna salai,,,71,600002
+192,13.077001,80.277459,street,nominatim:street,Anna Salai,anna salai,,,71,600002

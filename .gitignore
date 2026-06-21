@@ -1,0 +1,21 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Heavy source files (available from ECI, not tracked)
+extracted_pdfs/
+18-eroll.zip
+
+# Intermediate analysis files
+analysis/*.xlsx
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Old single-AC outputs (superseded by unified heatmap.html)
+site/ac018_heatmap.html
+site/ac019_heatmap.html
+site/ac018_demographics_heatmap.html
+site/ac018_vote_map.html

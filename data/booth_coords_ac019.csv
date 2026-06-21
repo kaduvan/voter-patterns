@@ -1,0 +1,207 @@
+part_no,lat,lon,tier,source,street,street_key,locality,locality_key,door_no,pincode
+1,13.077911,80.269001,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,1,600002
+1,13.057215,80.26219,locality,nominatim:locality,,,Royapettah,royapettah,4,600014
+2,13.077897,80.269177,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,2,600002
+3,13.077883,80.269841,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,3,600002
+4,13.077869,80.270485,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,4,600002
+5,13.077855,80.270663,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,5,600002
+6,13.062,80.273,ac_centroid,ac019_centroid,Lebend Street,lebend street,,,1,600002
+7,13.077911,80.270619,locality,nominatim:locality,East Coovam River Road,east coovam river road,Chintadripet,chintadripet,1,600002
+8,13.077897,80.271098,locality,nominatim:locality,East Coovam River Road,east coovam river road,Chintadripet,chintadripet,2,600002
+9,13.077883,80.272494,locality,nominatim:locality,East Coovam River Road,east coovam river road,Chintadripet,chintadripet,3,600002
+10,13.077869,80.269059,locality,nominatim:locality,East Coovam River Road,east coovam river road,Chintadripet,chintadripet,4,600002
+11,13.077855,80.271173,locality,nominatim:locality,East Coovam River Road,east coovam river road,Chintadripet,chintadripet,5,600002
+12,13.077841,80.272555,locality,nominatim:locality,East Coovam River Road,east coovam river road,Chintadripet,chintadripet,6,600002
+13,13.062,80.273,ac_centroid,ac019_centroid,East Coovam River Road,east coovam river road,Adikesavapuram,adikesavapuram,1,
+14,13.062205,80.274658,street,nominatim:street,Ayya Street,ayya street,Adikesavapuram,adikesavapuram,2,
+15,13.062,80.273,ac_centroid,ac019_centroid,Lepond Street,lepond street,,,1,600002
+16,13.062,80.273,ac_centroid,ac019_centroid,Lepond Street,lepond street,,,2,600002
+17,13.062,80.273,ac_centroid,ac019_centroid,Lepond Street,lepond street,,,3,600002
+18,13.077841,80.272506,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,6,600002
+19,13.077828,80.269535,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,7,600002
+20,13.077814,80.269265,locality,nominatim:locality,West Coovam River Road,west coovam river road,Chintadripet,chintadripet,8,600002
+21,13.062219,80.276286,street,nominatim:street,Ayya Street,ayya street,Chintadripet,chintadripet,1,600002
+22,13.062205,80.276595,street,nominatim:street,Ayya Street,ayya street,Chintadripet,chintadripet,2,600002
+23,13.062191,80.276513,street,nominatim:street,Ayya Street,ayya street,Chintadripet,chintadripet,3,600002
+24,13.062177,80.274542,street,nominatim:street,Ayya Street,ayya street,Chintadripet,chintadripet,4,600002
+25,13.073313,80.26748,street,nominatim:street,Guruvappa Street,guruvappa street,Chintadripet,chintadripet,,600002
+26,13.075085,80.269595,street,nominatim:street,Guruvappa Street,guruvappa street,Chintadripet,chintadripet,2,600002
+27,13.075071,80.267436,street,nominatim:street,Guruvappa Street,guruvappa street,Chintadripet,chintadripet,3,600002
+28,13.077911,80.271373,locality,nominatim:locality,Washermen street,washermen street,Chintadripet,chintadripet,1,
+29,13.075071,80.26928,street,nominatim:street,Guruvappa Street,guruvappa street,Chintadripet,chintadripet,3,600002
+30,13.075043,80.267479,street,nominatim:street,Guruvappa Street,guruvappa street,Chintadripet,chintadripet,5,600002
+31,13.090963,80.276381,street,nominatim:street,Singanna Street,singanna street,Chintadripet,chintadripet,1,600002
+32,13.090949,80.275287,street,nominatim:street,Singanna Street,singanna street,Chintadripet,chintadripet,2,600002
+33,13.090935,80.278148,street,nominatim:street,Singanna Street,singanna street,Chintadripet,chintadripet,3,600002
+34,13.062,80.273,ac_centroid,ac019_centroid,Subburayan Street,subburayan street,,,1,600002
+35,13.062,80.273,ac_centroid,ac019_centroid,Subburayan Street,subburayan street,,,2,600002
+36,13.064024,80.274096,street,nominatim:street,Nagappa Street,nagappa street,,,1,600002
+37,13.062,80.273,ac_centroid,ac019_centroid,rd Lane,rd lane,,,1,
+38,13.069717,80.266683,street,nominatim:street,Venkatachala Street,venkatachala street,,,233,600002
+39,13.069717,80.267006,street,nominatim:street,Venkatachala Street,venkatachala street,,,233,600002
+40,13.064024,80.274247,street,nominatim:street,Nagappa Street,nagappa street,,,1,
+41,13.062,80.273,ac_centroid,ac019_centroid,Meerhasan Hussain Street,meerhasan hussain street,,,2,
+42,13.063981,80.27375,street,nominatim:street,Nagappa Street,nagappa street,,,4,600002
+43,13.063967,80.272414,street,nominatim:street,Nagappa Street,nagappa street,,,5,600002
+44,13.062,80.273,ac_centroid,ac019_centroid,Saibul Mulk street,saibul mulk street,,,2,
+45,13.063995,80.274623,street,nominatim:street,Nagappa Street,nagappa street,,,3,600002
+46,13.062,80.273,ac_centroid,ac019_centroid,South coovam river Road,south coovam river road,,,3,
+47,13.059384,80.281403,locality,nominatim:locality,C.S.I. Middle School Bharathi Salai,c s i middle school bharathi salai,Bharathi Salai,bharathi salai,1,600014
+48,13.062,80.273,ac_centroid,ac019_centroid,Ameerunnissa Street,ameerunnissa street,,,63,
+49,13.062214,80.276369,locality,nominatim:locality,CHELLA PILLAIYAR KOIL STREET,chella pillaiyar koil street,Triplicane,triplicane,1,600005
+50,13.062,80.273,ac_centroid,ac019_centroid,CHELLA PILLAIYAR KOIL STREET,chella pillaiyar koil street,,,1,600005
+51,13.059384,80.282299,street,nominatim:street,Bharathi Salai,bharathi salai,Triplicane,triplicane,1,600014
+52,13.059369,80.282054,street,nominatim:street,Bharathi Salai,bharathi salai,Triplicane,triplicane,2,600014
+53,13.059355,80.283009,street,nominatim:street,Bharathi Salai,bharathi salai,Triplicane,triplicane,3,600014
+54,13.062,80.273,ac_centroid,ac019_centroid,Bharthi salai,bharthi salai,,,1,600002
+55,13.059384,80.283068,locality,nominatim:locality,New Side Bharathi Salai,new side bharathi salai,Bharathi Salai,bharathi salai,1,600002
+56,13.059384,80.280274,locality,nominatim:locality,New Side Bharathi Salai,new side bharathi salai,Bharathi Salai,bharathi salai,1,600002
+57,13.059384,80.282615,locality,nominatim:locality,New Side Bharathi Salai,new side bharathi salai,Bharathi Salai,bharathi salai,1,600002
+58,13.059341,80.279764,street,nominatim:street,Bharathi Salai,bharathi salai,Triplicane,triplicane,4,600014
+59,13.059384,80.281782,locality,nominatim:locality,C.S.I. Middle School Bharathi Salai,c s i middle school bharathi salai,Bharathi Salai,bharathi salai,1,600014
+60,13.059369,80.279935,street,nominatim:street,Bharathi Salai,bharathi salai,Bharathi Salai,bharathi salai,2,600014
+61,13.059355,80.281678,street,nominatim:street,Bharathi Salai,bharathi salai,Bharathi Salai,bharathi salai,3,600014
+62,13.059369,80.280586,locality,nominatim:locality,C.S.I. Middle School Bharathi Salai,c s i middle school bharathi salai,Bharathi Salai,bharathi salai,2,600014
+63,13.062,80.273,ac_centroid,ac019_centroid,,,Thiruvatteeswaranpet,thiruvatteeswaranpet,1,600005
+64,13.062,80.273,ac_centroid,ac019_centroid,,,,,3,600005
+65,13.062214,80.276224,locality,nominatim:locality,,,Triplicane,triplicane,1,600005
+66,13.062,80.273,ac_centroid,ac019_centroid,,,Thiruvatteeswaranpet,thiruvatteeswaranpet,2,600005
+67,13.062,80.273,ac_centroid,ac019_centroid,,,Thiruvatteeswaranpet,thiruvatteeswaranpet,3,600005
+68,13.062214,80.273301,locality,nominatim:locality,,,Triplicane,triplicane,1,600005
+69,13.0622,80.274218,locality,nominatim:locality,,,Triplicane,triplicane,2,600005
+70,13.062186,80.27619,locality,nominatim:locality,,,Triplicane,triplicane,3,600005
+71,13.062172,80.274832,locality,nominatim:locality,,,Triplicane,triplicane,4,600005
+72,13.062158,80.276715,locality,nominatim:locality,,,Triplicane,triplicane,5,600005
+73,13.062,80.273,ac_centroid,ac019_centroid,,,Thiruvatteeswaranpet,thiruvatteeswaranpet,3,600005
+74,13.062,80.273,ac_centroid,ac019_centroid,,,Thiruvatteeswaranpet,thiruvatteeswaranpet,4,600005
+75,13.0622,80.276265,locality,nominatim:locality,old Buliding Pillaiyar Kovil Street,old buliding pillaiyar kovil street,Triplicane,triplicane,2,600005
+76,13.062186,80.276082,locality,nominatim:locality,old Buliding Pillaiyar Kovil Street,old buliding pillaiyar kovil street,Triplicane,triplicane,3,600005
+77,13.062,80.273,ac_centroid,ac019_centroid,,,,,1,600005
+78,13.062,80.273,ac_centroid,ac019_centroid,,,,,2,600005
+79,13.062,80.273,ac_centroid,ac019_centroid,,,,,3360,336030
+80,13.066299,80.283365,locality,nominatim:locality,,,Chepauk,chepauk,1,600005
+81,13.062,80.273,ac_centroid,ac019_centroid,Veeraghavan Street,veeraghavan street,,,1,600005
+82,13.062,80.273,ac_centroid,ac019_centroid,Veeraghavan Street,veeraghavan street,,,2,600005
+83,13.062,80.273,ac_centroid,ac019_centroid,,,,,3360,336030
+84,13.062,80.273,ac_centroid,ac019_centroid,Veeraghavan Street,veeraghavan street,,,2,600005
+85,13.066299,80.282914,locality,nominatim:locality,Bells Road,bells road,Chepauk,chepauk,1,600005
+86,13.066285,80.283243,locality,nominatim:locality,Bells Road,bells road,Chepauk,chepauk,2,600005
+87,13.066243,80.281512,locality,nominatim:locality,Bells Road,bells road,Chepauk,chepauk,5,600005
+88,13.066299,80.2815,locality,nominatim:locality,,,Chepauk,chepauk,1,600005
+89,13.066243,80.282801,locality,nominatim:locality,Bells Road,bells road,Chepauk,chepauk,5,600005
+90,13.066229,80.28357,locality,nominatim:locality,Bells Road,bells road,Chepauk,chepauk,6,600005
+91,13.062214,80.276725,locality,nominatim:locality,Old Buliding Venkatarangam Street,old buliding venkatarangam street,Triplicane,triplicane,1,600005
+92,13.0622,80.274684,locality,nominatim:locality,Old Buliding Venkatarangam Street,old buliding venkatarangam street,Triplicane,triplicane,2,600005
+93,13.055995,80.277453,street,nominatim:street,Peyalwar Koil Street,peyalwar koil street,Triplicane,triplicane,1,600005
+94,13.055981,80.276221,street,nominatim:street,Peyalwar Koil Street,peyalwar koil street,Triplicane,triplicane,2,600005
+95,13.055967,80.274757,street,nominatim:street,Peyalwar Koil Street,peyalwar koil street,Triplicane,triplicane,3,600005
+96,13.062186,80.275663,locality,nominatim:locality,Old Buliding Venkatarangam Street,old buliding venkatarangam street,Triplicane,triplicane,3,600005
+97,13.050818,80.250717,street,nominatim:street,Kamaraj Salai,kamaraj salai,Triplicane,triplicane,1,600005
+98,13.050804,80.248083,street,nominatim:street,Kamaraj Salai,kamaraj salai,Triplicane,triplicane,2,600005
+99,13.062214,80.274323,locality,nominatim:locality,Venkatrangam Pillai Street,venkatrangam pillai street,Triplicane,triplicane,1,
+100,13.044967,80.264015,street,nominatim:street,st lane,st lane,Triplicane,triplicane,2,
+101,13.062186,80.27527,locality,nominatim:locality,Sunguwar Street,sunguwar street,Triplicane,triplicane,3,
+102,13.062172,80.276478,locality,nominatim:locality,Sunguwar Lane,sunguwar lane,Triplicane,triplicane,4,
+103,13.05366,80.276876,street,nominatim:street,Dr.Besant Road,dr besant road,Triplicane,triplicane,1,600005
+104,13.053646,80.277512,street,nominatim:street,Dr.Besant Road,dr besant road,Triplicane,triplicane,2,600005
+105,13.053632,80.276563,street,nominatim:street,Dr.Besant Road,dr besant road,Triplicane,triplicane,3,600005
+106,13.053618,80.275759,street,nominatim:street,Dr.Besant Road,dr besant road,Triplicane,triplicane,4,600005
+107,13.062214,80.275838,locality,nominatim:locality,Thulasinga Perumal Koil Street,thulasinga perumal koil street,Triplicane,triplicane,1,600005
+108,13.0622,80.273526,locality,nominatim:locality,Thulasinga Perumal Koil Street,thulasinga perumal koil street,Triplicane,triplicane,2,600005
+109,13.062214,80.274102,locality,nominatim:locality,Bandy Venkatesa Street,bandy venkatesa street,Triplicane,triplicane,1,600005
+110,13.0622,80.27496,locality,nominatim:locality,Bandy Venkatesa Street,bandy venkatesa street,Triplicane,triplicane,2,600005
+111,13.062214,80.274608,locality,nominatim:locality,Singaram Street,singaram street,Triplicane,triplicane,1,600005
+112,13.0622,80.274278,locality,nominatim:locality,Singaram Street,singaram street,Triplicane,triplicane,2,600005
+113,13.062186,80.275633,locality,nominatim:locality,Thulasinga Perumal Koil Street,thulasinga perumal koil street,Triplicane,triplicane,3,600005
+114,13.062214,80.274271,locality,nominatim:locality,nd Street,nd street,Triplicane,triplicane,1,
+115,13.062214,80.273921,locality,nominatim:locality,Vasudevapuram Ist Lane,vasudevapuram ist lane,Triplicane,triplicane,1,
+116,13.054247,80.279695,street,nominatim:street,Hanumantha Rayan Koil Street,hanumantha rayan koil street,Triplicane,triplicane,1,
+117,13.062214,80.27339,locality,nominatim:locality,North Tank Squaire,north tank squaire,Triplicane,triplicane,1,600005
+118,13.0622,80.276188,locality,nominatim:locality,North Tank Squaire,north tank squaire,Triplicane,triplicane,2,600005
+119,13.057808,80.275951,street,nominatim:street,Big Street,big street,Triplicane,triplicane,37,600005
+120,13.057797,80.274696,street,nominatim:street,Big Street,big street,Triplicane,triplicane,38,600005
+121,13.057786,80.27729,street,nominatim:street,Big Street,big street,Triplicane,triplicane,39,600005
+122,13.062214,80.27453,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,1,600005
+123,13.0622,80.274029,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,2,600005
+124,13.062186,80.273485,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,3,600005
+125,13.058258,80.277223,street,nominatim:street,Big Street,big street,Triplicane,triplicane,1,600005
+126,13.058244,80.274458,street,nominatim:street,Big Street,big street,Triplicane,triplicane,2,600005
+127,13.058229,80.277357,street,nominatim:street,Big Street,big street,Triplicane,triplicane,3,600005
+128,13.058215,80.274676,street,nominatim:street,Big Street,big street,Triplicane,triplicane,4,600005
+129,13.062172,80.274972,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,4,600005
+130,13.062158,80.275265,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,5,600005
+131,13.062144,80.275418,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,6,600005
+132,13.057257,80.264372,locality,nominatim:locality,Mani's Nursery School Sheik Dawood Street,mani s nursery school sheik dawood street,Royapettah,royapettah,1,600014
+133,13.057243,80.264499,locality,nominatim:locality,Mani's Nursery School Sheik Dawood Street,mani s nursery school sheik dawood street,Royapettah,royapettah,2,600014
+134,13.057229,80.265728,locality,nominatim:locality,Mani's Nursery School Sheik Dawood Street,mani s nursery school sheik dawood street,Royapettah,royapettah,3,600014
+135,13.057215,80.265264,locality,nominatim:locality,Mani's Nursery School Sheik Dawood Street,mani s nursery school sheik dawood street,Royapettah,royapettah,4,600014
+136,13.062144,80.275089,locality,nominatim:locality,Quide E Millet Salai,quide e millet salai,Triplicane,triplicane,6,600005
+137,13.0622,80.275135,locality,nominatim:locality,Sorrappa Street,sorrappa street,Triplicane,triplicane,2,600005
+138,13.062186,80.275574,locality,nominatim:locality,Sorrappa Street,sorrappa street,Triplicane,triplicane,3,600005
+139,13.062172,80.274923,locality,nominatim:locality,Sorrappa Street,sorrappa street,Triplicane,triplicane,4,600005
+140,13.0622,80.274911,locality,nominatim:locality,gazeette begam street,gazeette begam street,Triplicane,triplicane,2,
+141,13.0622,80.276368,locality,nominatim:locality,Sheik Dawood Street,sheik dawood street,Triplicane,triplicane,2,
+142,13.053618,80.274529,street,nominatim:street,dr. Besant Road,dr besant road,Triplicane,triplicane,4,
+143,13.062214,80.275857,locality,nominatim:locality,rd Lane,rd lane,Triplicane,triplicane,1,
+144,13.057201,80.262861,locality,nominatim:locality,,,Royapettah,royapettah,5,600014
+145,13.0622,80.275582,locality,nominatim:locality,gazeette begam street,gazeette begam street,Triplicane,triplicane,2,
+146,13.057187,80.262374,locality,nominatim:locality,,,Royapettah,royapettah,6,600014
+147,13.060807,80.282517,street,nominatim:street,st street,st street,Triplicane,triplicane,1,
+148,13.0622,80.275849,locality,nominatim:locality,nd street,nd street,Triplicane,triplicane,2,
+149,13.044953,80.26387,street,nominatim:street,st lane,st lane,Triplicane,triplicane,3,
+150,13.060081,80.266118,street,nominatim:street,rd Street,rd street,Triplicane,triplicane,3,
+151,13.0622,80.275365,locality,nominatim:locality,Ponnapa lane,ponnapa lane,Triplicane,triplicane,2,
+152,13.062186,80.276031,locality,nominatim:locality,Angamuthu Street,angamuthu street,Triplicane,triplicane,3,
+153,13.062172,80.275875,locality,nominatim:locality,Muzafurjung Bagadhur Street,muzafurjung bagadhur street,Triplicane,triplicane,4,
+154,13.062158,80.273526,locality,nominatim:locality,th Street,th street,Triplicane,triplicane,5,
+155,13.062144,80.274594,locality,nominatim:locality,nd lane,nd lane,Triplicane,triplicane,6,
+156,13.06213,80.276681,locality,nominatim:locality,nd Lane,nd lane,Triplicane,triplicane,7,
+157,13.062117,80.275647,locality,nominatim:locality,th Street,th street,Triplicane,triplicane,8,
+158,13.062103,80.276167,locality,nominatim:locality,nd street,nd street,Triplicane,triplicane,9,
+159,13.055024,80.269615,locality,nominatim:locality,th Lane,th lane,Peters Road,peters road,1,
+160,13.055009,80.271949,locality,nominatim:locality,th Lane,th lane,Peters Road,peters road,2,
+161,13.054995,80.270987,locality,nominatim:locality,Rasul Umar Bagadhur Main Road,rasul umar bagadhur main road,Peters Road,peters road,3,
+162,13.054981,80.271656,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,4,
+163,13.054967,80.270283,locality,nominatim:locality,th lane,th lane,Peters Road,peters road,5,
+164,13.062,80.273,ac_centroid,ac019_centroid,West Cott Road,west cott road,West Cott Road,west cott road,1,600014
+165,13.062,80.273,ac_centroid,ac019_centroid,West Cott Road,west cott road,West Cott Road,west cott road,2,600014
+166,13.057257,80.264155,locality,nominatim:locality,Mohammed Hussain Street,mohammed hussain street,Royapettah,royapettah,1,600014
+167,13.057243,80.262678,locality,nominatim:locality,Mohammed Hussain Street,mohammed hussain street,Royapettah,royapettah,2,600014
+168,13.057229,80.262623,locality,nominatim:locality,Mohammed Hussain Street,mohammed hussain street,Royapettah,royapettah,3,600014
+169,13.05712,80.264356,locality,nominatim:locality,Mohammed Hussain Street,mohammed hussain street,Royapettah,royapettah,11,600014
+170,13.057257,80.264726,locality,nominatim:locality,johny john khan Road,johny john khan road,Royapettah,royapettah,1,
+171,13.057243,80.263049,locality,nominatim:locality,manicka mesthiri street,manicka mesthiri street,Royapettah,royapettah,2,
+172,13.057257,80.263267,locality,nominatim:locality,johny john khan Road,johny john khan road,Royapettah,royapettah,1,
+173,13.057243,80.262232,locality,nominatim:locality,Mirza Hyder Alikhan Street,mirza hyder alikhan street,Royapettah,royapettah,2,600014
+174,13.057257,80.262441,locality,nominatim:locality,Mirza Hyder Alikhan Street,mirza hyder alikhan street,Royapettah,royapettah,1,600014
+175,13.057243,80.263715,locality,nominatim:locality,Mirza Hyder Alikhan Street,mirza hyder alikhan street,Royapettah,royapettah,2,600014
+176,13.057257,80.26352,locality,nominatim:locality,th Street,th street,Royapettah,royapettah,1,
+177,13.057243,80.26232,locality,nominatim:locality,Vathiyar Chinna Street,vathiyar chinna street,Royapettah,royapettah,2,
+178,13.060778,80.280459,street,nominatim:street,st Street,st street,Royapettah,royapettah,3,
+179,13.055024,80.271111,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,1,600014
+180,13.055009,80.272159,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,2,600014
+181,13.054995,80.272328,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,3,600014
+182,13.054954,80.272729,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,6,600014
+183,13.055024,80.272246,locality,nominatim:locality,vengatachala street,vengatachala street,Peters Road,peters road,1,
+184,13.054981,80.270822,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,4,600014
+185,13.054967,80.271351,street,nominatim:street,Peters Road,peters road,Peters Road,peters road,5,600014
+186,13.057257,80.263056,locality,nominatim:locality,nd street,nd street,Royapettah,royapettah,1,
+187,13.057243,80.263526,locality,nominatim:locality,nd Street,nd street,Royapettah,royapettah,2,
+188,13.050807,80.249657,street,nominatim:street,Kamaraj Street,kamaraj street,Royapettah,royapettah,3,
+189,13.057215,80.265673,locality,nominatim:locality,Periyar Street,periyar street,Royapettah,royapettah,4,
+190,13.062,80.273,ac_centroid,ac019_centroid,Dr. Rathakrishnan Road,dr rathakrishnan road,,,1,600004
+191,13.057257,80.263135,locality,nominatim:locality,Gowdiya Mutt Road,gowdiya mutt road,Royapettah,royapettah,1,
+192,13.057243,80.262815,locality,nominatim:locality,Gowdiya Mutt Road,gowdiya mutt road,Royapettah,royapettah,2,
+193,13.054967,80.26426,street,nominatim:street,Royapettah High Road,royapettah high road,Royapettah,royapettah,1,600014
+194,13.054953,80.263882,street,nominatim:street,Royapettah High Road,royapettah high road,Royapettah,royapettah,2,600014
+195,13.054939,80.262446,street,nominatim:street,Royapettah High Road,royapettah high road,Royapettah,royapettah,3,600014
+196,13.060807,80.282839,street,nominatim:street,st street,st street,Royapettah,royapettah,1,
+197,13.062,80.273,ac_centroid,ac019_centroid,Dr. Rathakrishnan Road,dr rathakrishnan road,,,2,600004
+198,13.062,80.273,ac_centroid,ac019_centroid,Dr. Rathakrishnan Road,dr rathakrishnan road,,,3,600004
+199,13.057257,80.263451,locality,nominatim:locality,th Street,th street,Royapettah,royapettah,1,
+200,13.050675,80.274572,street,nominatim:street,E Depot Street,e depot street,Triplicane,triplicane,5,
+201,13.062144,80.276042,locality,nominatim:locality,Venkatasamy Lane,venkatasamy lane,Triplicane,triplicane,6,
+202,13.060026,80.266031,street,nominatim:street,rd Street,rd street,Triplicane,triplicane,7,
+203,13.057257,80.262954,locality,nominatim:locality,,,Royapettah,royapettah,1,600014
+204,13.057243,80.26321,locality,nominatim:locality,,,Royapettah,royapettah,2,600014
+205,13.057229,80.264943,locality,nominatim:locality,,,Royapettah,royapettah,3,600014

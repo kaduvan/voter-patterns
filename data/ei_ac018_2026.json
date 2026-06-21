@@ -1,0 +1,580 @@
+{
+  "year": 2026,
+  "n_booths": 174,
+  "alliances": [
+    "SPA",
+    "TVK",
+    "AIADMK",
+    "NTK",
+    "Independent"
+  ],
+  "alliance_vote_shares": {
+    "SPA": 0.45,
+    "TVK": 0.3353,
+    "AIADMK": 0.1845,
+    "NTK": 0.0161,
+    "Independent": 0.0116
+  },
+  "intervals": {
+    "18-21": {
+      "SPA": {
+        "alpha": 0.3294,
+        "beta": 2.9219,
+        "r2": 0.0379,
+        "se_beta": 1.1225,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "TVK": {
+        "alpha": 0.266,
+        "beta": 1.663,
+        "r2": 0.039,
+        "se_beta": 0.6292,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "AIADMK": {
+        "alpha": 0.373,
+        "beta": -4.5546,
+        "r2": 0.0877,
+        "se_beta": 1.1198,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0132,
+        "beta": 0.0707,
+        "r2": 0.0071,
+        "se_beta": 0.064,
+        "n": 174,
+        "estimated_support": 0.0839,
+        "ci": [
+          0.0,
+          0.2093
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0142,
+        "beta": -0.0613,
+        "r2": 0.0086,
+        "se_beta": 0.0501,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0982
+        ]
+      }
+    },
+    "22-29": {
+      "SPA": {
+        "alpha": 0.2607,
+        "beta": 1.2057,
+        "r2": 0.0414,
+        "se_beta": 0.4425,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.1327,
+          1.0
+        ]
+      },
+      "TVK": {
+        "alpha": 0.1903,
+        "beta": 0.9377,
+        "r2": 0.0796,
+        "se_beta": 0.2432,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.5233,
+          1.0
+        ]
+      },
+      "AIADMK": {
+        "alpha": 0.5201,
+        "beta": -2.1529,
+        "r2": 0.1257,
+        "se_beta": 0.433,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.8487
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0078,
+        "beta": 0.0552,
+        "r2": 0.0276,
+        "se_beta": 0.025,
+        "n": 174,
+        "estimated_support": 0.063,
+        "ci": [
+          0.014,
+          0.112
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0154,
+        "beta": -0.0238,
+        "r2": 0.0083,
+        "se_beta": 0.0198,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0388
+        ]
+      }
+    },
+    "30-39": {
+      "SPA": {
+        "alpha": 0.2765,
+        "beta": 0.7753,
+        "r2": 0.0221,
+        "se_beta": 0.3935,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.2287,
+          1.0
+        ]
+      },
+      "TVK": {
+        "alpha": 0.3045,
+        "beta": 0.1084,
+        "r2": 0.0014,
+        "se_beta": 0.223,
+        "n": 174,
+        "estimated_support": 0.4129,
+        "ci": [
+          0.0,
+          0.85
+        ]
+      },
+      "AIADMK": {
+        "alpha": 0.3936,
+        "beta": -0.9079,
+        "r2": 0.0288,
+        "se_beta": 0.4018,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.7875
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0147,
+        "beta": 0.0055,
+        "r2": 0.0004,
+        "se_beta": 0.0223,
+        "n": 174,
+        "estimated_support": 0.0202,
+        "ci": [
+          0.0,
+          0.0639
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0064,
+        "beta": 0.0266,
+        "r2": 0.0135,
+        "se_beta": 0.0174,
+        "n": 174,
+        "estimated_support": 0.033,
+        "ci": [
+          0.0,
+          0.0671
+        ]
+      }
+    },
+    "40-49": {
+      "SPA": {
+        "alpha": 0.3817,
+        "beta": 0.2321,
+        "r2": 0.0017,
+        "se_beta": 0.4228,
+        "n": 174,
+        "estimated_support": 0.6138,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "TVK": {
+        "alpha": 0.2425,
+        "beta": 0.3582,
+        "r2": 0.0132,
+        "se_beta": 0.2358,
+        "n": 174,
+        "estimated_support": 0.6007,
+        "ci": [
+          0.1385,
+          1.0
+        ]
+      },
+      "AIADMK": {
+        "alpha": 0.3466,
+        "beta": -0.5956,
+        "r2": 0.011,
+        "se_beta": 0.4312,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.8452
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0253,
+        "beta": -0.0404,
+        "r2": 0.0169,
+        "se_beta": 0.0235,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0461
+        ]
+      },
+      "Independent": {
+        "alpha": 0.004,
+        "beta": 0.0337,
+        "r2": 0.0191,
+        "se_beta": 0.0184,
+        "n": 174,
+        "estimated_support": 0.0377,
+        "ci": [
+          0.0016,
+          0.0738
+        ]
+      }
+    },
+    "50-59": {
+      "SPA": {
+        "alpha": 0.6298,
+        "beta": -1.0029,
+        "r2": 0.0272,
+        "se_beta": 0.4575,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.8967
+        ]
+      },
+      "TVK": {
+        "alpha": 0.3908,
+        "beta": -0.3312,
+        "r2": 0.0094,
+        "se_beta": 0.2589,
+        "n": 174,
+        "estimated_support": 0.0596,
+        "ci": [
+          0.0,
+          0.567
+        ]
+      },
+      "AIADMK": {
+        "alpha": -0.0589,
+        "beta": 1.3752,
+        "r2": 0.0487,
+        "se_beta": 0.4635,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0915,
+          1.0
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0191,
+        "beta": -0.0169,
+        "r2": 0.0025,
+        "se_beta": 0.026,
+        "n": 174,
+        "estimated_support": 0.0022,
+        "ci": [
+          0.0,
+          0.0532
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0168,
+        "beta": -0.0254,
+        "r2": 0.009,
+        "se_beta": 0.0203,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0398
+        ]
+      }
+    },
+    "60-69": {
+      "SPA": {
+        "alpha": 0.5653,
+        "beta": -1.103,
+        "r2": 0.027,
+        "se_beta": 0.5051,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.99
+        ]
+      },
+      "TVK": {
+        "alpha": 0.4596,
+        "beta": -1.1345,
+        "r2": 0.0907,
+        "se_beta": 0.2739,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.5368
+        ]
+      },
+      "AIADMK": {
+        "alpha": -0.0539,
+        "beta": 2.2255,
+        "r2": 0.1046,
+        "se_beta": 0.4964,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0271,
+          1.0
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0143,
+        "beta": 0.0129,
+        "r2": 0.0012,
+        "se_beta": 0.0287,
+        "n": 174,
+        "estimated_support": 0.0272,
+        "ci": [
+          0.0,
+          0.0835
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0131,
+        "beta": -0.01,
+        "r2": 0.0012,
+        "se_beta": 0.0225,
+        "n": 174,
+        "estimated_support": 0.0031,
+        "ci": [
+          0.0,
+          0.0472
+        ]
+      }
+    },
+    "70+": {
+      "SPA": {
+        "alpha": 0.5542,
+        "beta": -1.7794,
+        "r2": 0.0565,
+        "se_beta": 0.5546,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "TVK": {
+        "alpha": 0.3847,
+        "beta": -0.8732,
+        "r2": 0.0432,
+        "se_beta": 0.3133,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.6141
+        ]
+      },
+      "AIADMK": {
+        "alpha": 0.0293,
+        "beta": 2.6723,
+        "r2": 0.1213,
+        "se_beta": 0.5484,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0181,
+        "beta": -0.034,
+        "r2": 0.0065,
+        "se_beta": 0.0319,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0625
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0127,
+        "beta": -0.0121,
+        "r2": 0.0014,
+        "se_beta": 0.0251,
+        "n": 174,
+        "estimated_support": 0.0006,
+        "ci": [
+          0.0,
+          0.0498
+        ]
+      }
+    },
+    "Under-30": {
+      "SPA": {
+        "alpha": 0.2324,
+        "beta": 1.119,
+        "r2": 0.0529,
+        "se_beta": 0.361,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.2924,
+          1.0
+        ]
+      },
+      "TVK": {
+        "alpha": 0.1799,
+        "beta": 0.8063,
+        "r2": 0.0873,
+        "se_beta": 0.1987,
+        "n": 174,
+        "estimated_support": 0.9862,
+        "ci": [
+          0.5967,
+          1.0
+        ]
+      },
+      "AIADMK": {
+        "alpha": 0.5579,
+        "beta": -1.9285,
+        "r2": 0.1497,
+        "se_beta": 0.3504,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.6868
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0077,
+        "beta": 0.0446,
+        "r2": 0.0268,
+        "se_beta": 0.0205,
+        "n": 174,
+        "estimated_support": 0.0523,
+        "ci": [
+          0.0121,
+          0.0925
+        ]
+      },
+      "Independent": {
+        "alpha": 0.016,
+        "beta": -0.0225,
+        "r2": 0.011,
+        "se_beta": 0.0162,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0318
+        ]
+      }
+    },
+    "60+": {
+      "SPA": {
+        "alpha": 0.6096,
+        "beta": -0.9459,
+        "r2": 0.0532,
+        "se_beta": 0.3044,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.5966
+        ]
+      },
+      "TVK": {
+        "alpha": 0.4525,
+        "beta": -0.6856,
+        "r2": 0.0888,
+        "se_beta": 0.1675,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.3283
+        ]
+      },
+      "AIADMK": {
+        "alpha": -0.0928,
+        "beta": 1.6329,
+        "r2": 0.1509,
+        "se_beta": 0.2953,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.4212,
+          1.0
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0168,
+        "beta": -0.0054,
+        "r2": 0.0005,
+        "se_beta": 0.0175,
+        "n": 174,
+        "estimated_support": 0.0114,
+        "ci": [
+          0.0,
+          0.0457
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0133,
+        "beta": -0.0074,
+        "r2": 0.0017,
+        "se_beta": 0.0137,
+        "n": 174,
+        "estimated_support": 0.0059,
+        "ci": [
+          0.0,
+          0.0328
+        ]
+      }
+    }
+  },
+  "method": "Goodman ecological regression",
+  "note": "beta = party vote-share gained per unit of cohort presence; estimated_support = predicted party share in a 100%-cohort booth. R^2 is the honesty signal (low R^2 -> weak inference). Illustrative association, NOT proven individual vote choice."
+}

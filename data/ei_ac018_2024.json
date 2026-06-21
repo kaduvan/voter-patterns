@@ -1,0 +1,580 @@
+{
+  "year": 2024,
+  "n_booths": 174,
+  "alliances": [
+    "SPA",
+    "NDA",
+    "Desiya Murpokku Dravida Kazhagam",
+    "NTK",
+    "Independent"
+  ],
+  "alliance_vote_shares": {
+    "SPA": 0.5881,
+    "NDA": 0.2957,
+    "Desiya Murpokku Dravida Kazhagam": 0.0573,
+    "NTK": 0.0396,
+    "Independent": 0.0132
+  },
+  "intervals": {
+    "18-21": {
+      "SPA": {
+        "alpha": 0.4386,
+        "beta": 3.4156,
+        "r2": 0.0217,
+        "se_beta": 1.7494,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.447,
+        "beta": -3.3435,
+        "r2": 0.0162,
+        "se_beta": 1.9854,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.0583,
+        "beta": -0.104,
+        "r2": 0.0008,
+        "se_beta": 0.2735,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.5361
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0381,
+        "beta": -0.0029,
+        "r2": 0.0,
+        "se_beta": 0.1838,
+        "n": 174,
+        "estimated_support": 0.0352,
+        "ci": [
+          0.0,
+          0.3954
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0134,
+        "beta": -0.0021,
+        "r2": 0.0,
+        "se_beta": 0.069,
+        "n": 174,
+        "estimated_support": 0.0113,
+        "ci": [
+          0.0,
+          0.1465
+        ]
+      }
+    },
+    "22-29": {
+      "SPA": {
+        "alpha": 0.4783,
+        "beta": 0.584,
+        "r2": 0.0039,
+        "se_beta": 0.7105,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.4149,
+        "beta": -0.6179,
+        "r2": 0.0034,
+        "se_beta": 0.8043,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.0538,
+        "beta": 0.0043,
+        "r2": 0.0,
+        "se_beta": 0.1101,
+        "n": 174,
+        "estimated_support": 0.0581,
+        "ci": [
+          0.0,
+          0.2739
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0384,
+        "beta": -0.0032,
+        "r2": 0.0,
+        "se_beta": 0.074,
+        "n": 174,
+        "estimated_support": 0.0352,
+        "ci": [
+          0.0,
+          0.1802
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0101,
+        "beta": 0.022,
+        "r2": 0.0037,
+        "se_beta": 0.0277,
+        "n": 174,
+        "estimated_support": 0.0321,
+        "ci": [
+          0.0,
+          0.0864
+        ]
+      }
+    },
+    "30-39": {
+      "SPA": {
+        "alpha": 0.6587,
+        "beta": -0.4602,
+        "r2": 0.0032,
+        "se_beta": 0.6152,
+        "n": 174,
+        "estimated_support": 0.1985,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.222,
+        "beta": 0.4967,
+        "r2": 0.0029,
+        "se_beta": 0.6964,
+        "n": 174,
+        "estimated_support": 0.7187,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.075,
+        "beta": -0.0998,
+        "r2": 0.0064,
+        "se_beta": 0.095,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.1862
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0359,
+        "beta": 0.0097,
+        "r2": 0.0001,
+        "se_beta": 0.064,
+        "n": 174,
+        "estimated_support": 0.0456,
+        "ci": [
+          0.0,
+          0.171
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0043,
+        "beta": 0.0436,
+        "r2": 0.0191,
+        "se_beta": 0.0238,
+        "n": 174,
+        "estimated_support": 0.0479,
+        "ci": [
+          0.0013,
+          0.0945
+        ]
+      }
+    },
+    "40-49": {
+      "SPA": {
+        "alpha": 0.661,
+        "beta": -0.4138,
+        "r2": 0.0023,
+        "se_beta": 0.6572,
+        "n": 174,
+        "estimated_support": 0.2472,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.3232,
+        "beta": 0.0057,
+        "r2": 0.0,
+        "se_beta": 0.7446,
+        "n": 174,
+        "estimated_support": 0.3289,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": -0.0049,
+        "beta": 0.2526,
+        "r2": 0.0358,
+        "se_beta": 0.0999,
+        "n": 174,
+        "estimated_support": 0.2477,
+        "ci": [
+          0.0519,
+          0.4435
+        ]
+      },
+      "NTK": {
+        "alpha": 0.011,
+        "beta": 0.1146,
+        "r2": 0.0163,
+        "se_beta": 0.0678,
+        "n": 174,
+        "estimated_support": 0.1256,
+        "ci": [
+          0.0,
+          0.2585
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0058,
+        "beta": 0.0321,
+        "r2": 0.0091,
+        "se_beta": 0.0256,
+        "n": 174,
+        "estimated_support": 0.0379,
+        "ci": [
+          0.0,
+          0.0881
+        ]
+      }
+    },
+    "50-59": {
+      "SPA": {
+        "alpha": 0.544,
+        "beta": 0.102,
+        "r2": 0.0001,
+        "se_beta": 0.7151,
+        "n": 174,
+        "estimated_support": 0.646,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.3515,
+        "beta": -0.1397,
+        "r2": 0.0002,
+        "se_beta": 0.8093,
+        "n": 174,
+        "estimated_support": 0.2118,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.0335,
+        "beta": 0.1085,
+        "r2": 0.0056,
+        "se_beta": 0.1103,
+        "n": 174,
+        "estimated_support": 0.142,
+        "ci": [
+          0.0,
+          0.3582
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0422,
+        "beta": -0.022,
+        "r2": 0.0005,
+        "se_beta": 0.0743,
+        "n": 174,
+        "estimated_support": 0.0202,
+        "ci": [
+          0.0,
+          0.1658
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0223,
+        "beta": -0.0465,
+        "r2": 0.0162,
+        "se_beta": 0.0277,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0543
+        ]
+      }
+    },
+    "60-69": {
+      "SPA": {
+        "alpha": 0.5564,
+        "beta": 0.0631,
+        "r2": 0.0,
+        "se_beta": 0.8022,
+        "n": 174,
+        "estimated_support": 0.6195,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.29,
+        "beta": 0.2965,
+        "r2": 0.0006,
+        "se_beta": 0.9076,
+        "n": 174,
+        "estimated_support": 0.5865,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.0764,
+        "beta": -0.1885,
+        "r2": 0.0134,
+        "se_beta": 0.1232,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.2415
+        ]
+      },
+      "NTK": {
+        "alpha": 0.048,
+        "beta": -0.0865,
+        "r2": 0.0063,
+        "se_beta": 0.0831,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.1629
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0202,
+        "beta": -0.0592,
+        "r2": 0.0208,
+        "se_beta": 0.031,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0608
+        ]
+      }
+    },
+    "70+": {
+      "SPA": {
+        "alpha": 0.5827,
+        "beta": -0.287,
+        "r2": 0.0006,
+        "se_beta": 0.8758,
+        "n": 174,
+        "estimated_support": 0.2957,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.285,
+        "beta": 0.5983,
+        "r2": 0.0021,
+        "se_beta": 0.9904,
+        "n": 174,
+        "estimated_support": 0.8833,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.0654,
+        "beta": -0.1652,
+        "r2": 0.0086,
+        "se_beta": 0.1349,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.2644
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0433,
+        "beta": -0.081,
+        "r2": 0.0046,
+        "se_beta": 0.0908,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.178
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0158,
+        "beta": -0.0375,
+        "r2": 0.007,
+        "se_beta": 0.0341,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0668
+        ]
+      }
+    },
+    "Under-30": {
+      "SPA": {
+        "alpha": 0.4229,
+        "beta": 0.7701,
+        "r2": 0.01,
+        "se_beta": 0.5828,
+        "n": 174,
+        "estimated_support": 1.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.4681,
+        "beta": -0.7852,
+        "r2": 0.0082,
+        "se_beta": 0.6602,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.056,
+        "beta": -0.0085,
+        "r2": 0.0001,
+        "se_beta": 0.0906,
+        "n": 174,
+        "estimated_support": 0.0475,
+        "ci": [
+          0.0,
+          0.2251
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0384,
+        "beta": -0.0025,
+        "r2": 0.0,
+        "se_beta": 0.0609,
+        "n": 174,
+        "estimated_support": 0.0359,
+        "ci": [
+          0.0,
+          0.1553
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0106,
+        "beta": 0.0147,
+        "r2": 0.0024,
+        "se_beta": 0.0228,
+        "n": 174,
+        "estimated_support": 0.0253,
+        "ci": [
+          0.0,
+          0.07
+        ]
+      }
+    },
+    "60+": {
+      "SPA": {
+        "alpha": 0.5756,
+        "beta": -0.0652,
+        "r2": 0.0001,
+        "se_beta": 0.486,
+        "n": 174,
+        "estimated_support": 0.5104,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "NDA": {
+        "alpha": 0.271,
+        "beta": 0.293,
+        "r2": 0.0016,
+        "se_beta": 0.5496,
+        "n": 174,
+        "estimated_support": 0.564,
+        "ci": [
+          0.0,
+          1.0
+        ]
+      },
+      "Desiya Murpokku Dravida Kazhagam": {
+        "alpha": 0.0764,
+        "beta": -0.12,
+        "r2": 0.0148,
+        "se_beta": 0.0746,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.1462
+        ]
+      },
+      "NTK": {
+        "alpha": 0.0483,
+        "beta": -0.0567,
+        "r2": 0.0073,
+        "se_beta": 0.0503,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0986
+        ]
+      },
+      "Independent": {
+        "alpha": 0.0194,
+        "beta": -0.0333,
+        "r2": 0.0179,
+        "se_beta": 0.0188,
+        "n": 174,
+        "estimated_support": 0.0,
+        "ci": [
+          0.0,
+          0.0368
+        ]
+      }
+    }
+  },
+  "method": "Goodman ecological regression",
+  "note": "beta = party vote-share gained per unit of cohort presence; estimated_support = predicted party share in a 100%-cohort booth. R^2 is the honesty signal (low R^2 -> weak inference). Illustrative association, NOT proven individual vote choice."
+}
