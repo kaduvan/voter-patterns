@@ -26,7 +26,11 @@ But electoral results only tell you one thing: aggregate vote counts. They don't
 
 This project brings both datasets together at the most granular level where they overlap: the individual polling booth. Form 20 tells you how many votes each candidate got. The Electoral Roll tells you how many registered voters fall into each age and gender band. Shown side by side, they give a fuller picture of a booth than either can alone.
 
+This is a **visualization tool**, not an analysis engine. It displays two official datasets side by side. It does not merge them, interpret them, or draw conclusions from them. It makes no claims about how demographic groups voted, how individuals voted, or what the correlations mean. Those are questions for researchers with proper methodology — not a map.
+
 What this is **not**: a claim that we know how any demographic group voted. That would require ecological inference, which we deliberately don't perform. We show the data. The interpretation is yours.
+
+The data shown here contains nothing that isn't already in the ECI's published PDFs. No individual names, addresses, or voting choices. Just aggregate counts per booth. If you can read a Form 20 PDF, you already have this data — this just makes it faster to see.
 
 ---
 
@@ -289,22 +293,6 @@ This project grows one constituency at a time. If you can:
 - **Report data errors** — if you spot a mismatch between our data and the official ECI PDFs, open an issue with the booth number and cycle
 
 Every contribution moves the map closer to covering all of India.
-
----
-
-## Why this project exists
-
-Vote counts tell you who won. They don't tell you *who the registered voters are*. That's the gap this project tries to close — not by exposing anything new, but by making already-public aggregate data easier to read.
-
-Form 20 answers "who won this booth?" in a second. But the composition of the electoral roll in a booth — how many are young, how many are women — that's in a separate official document: the Electoral Roll. Both are published by the ECI. Both are public. But neither is easy to read as-is.
-
-The Electoral Roll PDFs list each voter individually. This project **does not display or store individual voter information**. It aggregates the roll into booth-level summaries: counts by age band and gender. The same totals that appear in the ECI's own booth-level summaries — just visualized.
-
-This project is a **visualization tool**, not an analysis engine. It displays two official datasets side by side. It does not merge them, interpret them, or draw conclusions from them. It makes no claims about how demographic groups voted, how individuals voted, or what the correlations mean. Those are questions for researchers with proper methodology — not a map.
-
-The data shown here contains nothing that isn't already in the ECI's published PDFs. No individual names, addresses, or voting choices. Just aggregate counts per booth. If you can read a Form 20 PDF, you already have this data — this just makes it faster to see.
-
-Two constituencies. Two out of 234 in Tamil Nadu. A proof of concept that public data can be made more accessible. If you want to add your constituency, the [guide above](#how-to-replicate-this-analysis-for-your-constituency) tells you exactly how.
 
 ---
 
