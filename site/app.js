@@ -345,6 +345,8 @@ function renderOutline() {
 
 function selectBooth(uid) {
   selPart = uid;
+  const hint = document.getElementById('clickHint');
+  if (hint) hint.classList.add('dismissed');
   const f = P.geojson.features.find(x => x.properties.uid === uid);
   if (!f) return;
   const p = f.properties;

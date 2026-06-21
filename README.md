@@ -290,8 +290,12 @@ Every contribution moves the map closer to covering all of India.
 
 ---
 
+## Privacy
+
+This project displays **aggregated** data only — vote counts per candidate and voter counts per age/gender band. No individual voter's name, address, or voting choice is stored, displayed, or derivable from this data. The source Electoral Roll PDFs (which contain individual names) are not committed to this repository; only the aggregated counts per booth are.
+
 ## License
 
-MIT — free to use, modify, and distribute.
+MIT — see [LICENSE](LICENSE). Free to use, modify, and distribute.
 
-Election data © Election Commission of India. Electoral Roll data © Election Commission of India. Basemap tiles © CARTO, Esri, and OpenStreetMap contributors.
+Election data © Election Commission of India. This project is not affiliated with or endorsed by the ECI. Basemap tiles © CARTO, Esri, and OpenStreetMap contributors.

@@ -3,13 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Chennai Booth Analytics</title>
+<title>Chennai Booth Analytics — voter-patterns</title>
+<meta name="description" content="Booth-level electoral data for Chennai: official vote counts and registered voter demographics across three elections. 397 polling booths, 242,000 voters, Harbour & Chepauk-Thiruvallikeni.">
+<meta property="og:title" content="Chennai Booth Analytics">
+<meta property="og:description" content="Booth-level electoral data for Chennai: Form 20 vote counts + Electoral Roll demographics across 3 elections. 397 booths, 242,000 voters.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kaduvan.github.io/voter-patterns/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📍</text></svg>">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="topbar">
   <h1>Chennai Booth Analytics</h1>
+  <div class="hint" id="clickHint">Click any booth for details</div>
   <div class="stats" id="stats"></div>
 </div>
 <div class="app">
@@ -133,6 +141,10 @@
     <div id="infoVotes"></div>
   </div>
 </div>
+<footer class="footer">
+  Election data &copy; Election Commission of India &middot; Basemap &copy; CARTO, Esri, OSM contributors
+  &middot; <a href="https://github.com/kaduvan/voter-patterns" target="_blank">Source &amp; data</a>
+</footer>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="app.js"></script>
 </body>
