@@ -2,6 +2,8 @@
 
 An open-source, interactive booth-level electoral analytics platform for Chennai's coastal constituencies. Every polling booth is a polygon on the map — colored by who won, how decisively, who lives there, and how the neighborhood voted across three election cycles.
 
+🔗 **Live demo: [kaduvan.github.io/voter-patterns](https://kaduvan.github.io/voter-patterns/)**
+
 **Key question this answers:** *How did each polling booth in Harbour and Chepauk-Thiruvallikeni vote in 2021, 2024, and 2026 — and who are the voters behind those numbers?*
 
 ---
