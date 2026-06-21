@@ -4,6 +4,8 @@
 
 🔗 **Live: [kaduvan.github.io/voter-patterns](https://kaduvan.github.io/voter-patterns/)**
 
+> **Disclaimer:** This is an independent, non-commercial visualization of publicly available government data published by the Election Commission of India. It is **not affiliated with, endorsed by, or connected to** the ECI. It makes no claims, predictions, or interpretations — it simply displays official aggregate data (Form 20 vote counts and Electoral Roll age/gender summaries) in an interactive format. All data shown here is already freely available in the ECI's published PDFs.
+
 ---
 
 ## The status of this project
@@ -292,23 +294,37 @@ Every contribution moves the map closer to covering all of India.
 
 ## Why this project exists
 
-Vote counts tell you who won. They don't tell you *who the voters are*. That's the gap this project tries to close.
+Vote counts tell you who won. They don't tell you *who the registered voters are*. That's the gap this project tries to close — not by exposing anything new, but by making already-public aggregate data easier to read.
 
-Form 20 answers "who won this booth?" in a second. But the deeper question — who are the people registered here? How many are young? How many are women? Has the neighborhood changed between elections? — that answer lives in a different document: the Electoral Roll.
+Form 20 answers "who won this booth?" in a second. But the composition of the electoral roll in a booth — how many are young, how many are women — that's in a separate official document: the Electoral Roll. Both are published by the ECI. Both are public. But neither is easy to read as-is.
 
-The Electoral Roll is public. The ECI publishes it. But it's buried in thousands of PDF pages, listed voter by voter. Impossible to summarize without code. So the code was written: every page parsed, every booth aggregated into age bands and gender splits, geocoded, and placed next to the vote counts. For the first time, both datasets visible at once — who is registered here, and how here voted.
+The Electoral Roll PDFs list each voter individually. This project **does not display or store individual voter information**. It aggregates the roll into booth-level summaries: counts by age band and gender. The same totals that appear in the ECI's own booth-level summaries — just visualized.
 
-This project doesn't claim to know what the data means. It doesn't prove anything. It exists because the question "who are the voters behind these numbers?" deserves an answer that doesn't require a data science degree to reach.
+This project is a **visualization tool**, not an analysis engine. It displays two official datasets side by side. It does not merge them, interpret them, or draw conclusions from them. It makes no claims about how demographic groups voted, how individuals voted, or what the correlations mean. Those are questions for researchers with proper methodology — not a map.
 
-The conclusions are yours to draw. Carefully. Honestly. Without claiming more than the data can support — because aggregate booth-level data can't tell you how any individual voted, or how any demographic group voted. It shows you two true things side by side. What you do with that is up to you.
+The data shown here contains nothing that isn't already in the ECI's published PDFs. No individual names, addresses, or voting choices. Just aggregate counts per booth. If you can read a Form 20 PDF, you already have this data — this just makes it faster to see.
 
-Two constituencies. Two out of 234 in Tamil Nadu. A proof of concept that this can be done — cleanly, honestly, at scale. If you want to see your constituency on this map, the [guide above](#how-to-replicate-this-analysis-for-your-constituency) tells you exactly how.
+Two constituencies. Two out of 234 in Tamil Nadu. A proof of concept that public data can be made more accessible. If you want to add your constituency, the [guide above](#how-to-replicate-this-analysis-for-your-constituency) tells you exactly how.
 
 ---
 
-## Privacy
+## Privacy & data handling
 
-This project displays **aggregated** data only — vote counts per candidate and voter counts per age/gender band. No individual voter's name, address, or voting choice is stored, displayed, or derivable from this data. The source Electoral Roll PDFs (which contain individual names) are not committed to this repository; only the aggregated counts per booth are.
+**What this project stores and displays:**
+- Vote counts per candidate per booth (from Form 20)
+- Counts of registered voters by age band and gender per booth (aggregated from the Electoral Roll)
+- Booth locations (lat/lon from geocoding)
+
+**What this project does NOT store, display, or make derivable:**
+- Individual voter names
+- Individual voter addresses or house numbers
+- Individual voting choices (secret ballot — this data doesn't exist anywhere)
+- Raw Electoral Roll PDFs (not committed to this repository)
+- Any personally identifiable information (PII)
+
+The data in this repository is **identical in content** to what the Election Commission of India already publishes in Form 20 and the Electoral Roll. This project only changes the *format* — from PDF to interactive map. No new data is created. No individual-level data is exposed.
+
+If you are an ECI official or have concerns about any data displayed here, please [open an issue](https://github.com/kaduvan/voter-patterns/issues). This project exists to serve transparency and will promptly address any legitimate concern.
 
 ## License
 
