@@ -290,6 +290,26 @@ Every contribution moves the map closer to covering all of India.
 
 ---
 
+## Why I built this
+
+Vote counts tell you who won. They don't tell you *who voted*. That's the question that kept me up.
+
+Not "did SPA win this booth?" — the Form 20 answers that in a second. The question was: who are the 563 people registered in this booth on Saravanan Street? How many are under 30? How many are women? Have their lives changed enough between 2021 and 2026 to change how they vote?
+
+The Electoral Roll has those answers. It's not secret — it's public. The ECI publishes it. But it's buried in thousands of PDF pages, listed voter by voter: name, age, gender, father's name, house number. Impossible to summarize without code. So I wrote the code. Parsed every page. Aggregated every booth into seven age bands and gender splits. Cleaned it. Geocoded it. Put it next to the vote counts. And for the first time, I could see both at once — who lives here, and how here voted.
+
+I started with my own neighborhood. Harbour, where I grew up walking past the port and the fishing docks. Then Chepauk-Thiruvallikeni next door — Triplicane, Royapettah, the Marina. Two constituencies I know street by street. 397 booths. A quarter million people. Three elections.
+
+I don't know what the data says. That's the point. I didn't build this to prove anything. I built it because the question "who are the voters behind these numbers?" deserves an answer that doesn't require a data science degree to reach. The Electoral Roll answers it. Form 20 answers the other half. I just put them next to each other on a map.
+
+The conclusions are yours to draw. Carefully. Honestly. Without claiming more than the data can support — because the data can't tell you how any individual voted, or how any demographic group voted. It shows you two true things side by side. What you do with that is up to you.
+
+This is two constituencies. Two out of 234 in Tamil Nadu. A proof of concept that this can be done — cleanly, honestly, at scale. If you want to see your constituency on this map, the [guide above](#how-to-replicate-this-analysis-for-your-constituency) tells you exactly how. I'll help. Just open an issue.
+
+— kaduvan
+
+---
+
 ## Privacy
 
 This project displays **aggregated** data only — vote counts per candidate and voter counts per age/gender band. No individual voter's name, address, or voting choice is stored, displayed, or derivable from this data. The source Electoral Roll PDFs (which contain individual names) are not committed to this repository; only the aggregated counts per booth are.
