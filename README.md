@@ -1,6 +1,6 @@
 # voter-patterns
 
-**Booth-level electoral intelligence for Chennai — who voted, where they live, and how it shifted across three elections.**
+**Booth-level electoral data for Chennai — official vote counts and registered voter demographics, side by side across three elections.**
 
 🔗 **Live: [kaduvan.github.io/voter-patterns](https://kaduvan.github.io/voter-patterns/)**
 
@@ -10,9 +10,11 @@
 
 I built [electoral-analytics](https://github.com/kaduvan/electoral-analytics) to map the 2026 Tamil Nadu election across all 234 constituencies — village by village, statewide. It answered a broad question: *who won where?*
 
-But the closer you look at an election, the more you realize that constituency-level and even village-level results only tell you half the story. They tell you **how people voted**. They don't tell you **who those voters are** — their age, their gender, the generational makeup of a neighborhood. Without the Electoral Roll, you're looking at outcomes without the people behind them.
+But electoral results only tell you one thing: aggregate vote counts. They don't tell you who the electors in a booth are — their age, their gender, the generational makeup of a neighborhood. That information lives in a separate official document: the Electoral Roll.
 
-**voter-patterns** is the project that fixes that. It takes two constituencies — Harbour (AC018) and Chepauk-Thiruvallikeni (AC019), both in Chennai Central — and goes all the way down to the individual polling booth. Not just *who won this street*, but *who lives on this street, and did they change their mind?*
+This project takes two constituencies — Harbour (AC018) and Chepauk-Thiruvallikeni (AC019), both in Chennai Central — and brings both datasets together at the most granular level where they overlap: the individual polling booth. Form 20 tells you how many votes each candidate got. The Electoral Roll tells you how many registered voters fall into each age and gender band. Shown side by side, they give a fuller picture of a booth than either can alone.
+
+What this is **not**: a claim that we know how any demographic group voted. That would require ecological inference, which we deliberately don't perform. We show the data. The interpretation is yours.
 
 ---
 
@@ -26,36 +28,36 @@ But the closer you look at an election, the more you realize that constituency-l
 | **Elections** | 2026 only | **2021, 2024, 2026** (3 cycles) |
 | **Coverage** | 234 ACs, 9,809 villages (statewide) | 2 ACs, 397 booths (hyperlocal) |
 | **Data quality** | Village votes estimated (65.6% station match rate) | Booth votes exact (100% — source data is per-booth) |
-| **Time depth** | Single snapshot | Track how the same booth shifted across 5 years |
+| **Time depth** | Single snapshot | Same booths across 5 years and 3 elections |
 | **File size** | 39.5 MB monolith | 790 KB data + modular HTML/CSS/JS |
 
-**In short:** electoral-analytics is breadth (the whole state). voter-patterns is depth (every booth, every voter, every cycle). They're complementary — use electoral-analytics to see the macro picture, then drop into voter-patterns when you need to understand *why* a neighborhood voted the way it did.
+**In short:** electoral-analytics is breadth (the whole state, one election). voter-patterns is depth (every booth, both datasets, three elections). They're complementary.
 
-The reason this is a separate repo, not a feature added to electoral-analytics, is that they solve fundamentally different problems with different data pipelines. electoral-analytics aggregates Form 20 PDFs statewide. voter-patterns merges two independent datasets — the Electoral Roll (who can vote) and Form 20 (how they voted) — at the most granular level possible. The architecture, data sources, and analysis are distinct enough that forcing them together would compromise both.
+This is a separate repo rather than a feature in electoral-analytics because the data pipelines are fundamentally different. electoral-analytics aggregates Form 20 PDFs statewide. voter-patterns ingests two independent official datasets — the Electoral Roll and Form 20 — and aligns them at the booth level. The sources, parsing, and alignment logic don't share much code.
 
 ---
 
 ## What you can explore
 
-**397 polling booths** across two constituencies, each rendered as an interactive Voronoi cell on a light basemap. Click any booth to see:
+**397 polling booths** across two constituencies, each rendered as an interactive Voronoi cell on a light basemap. Click any booth to see both datasets side by side:
 
-### 🗳️ Votes (from Form 20)
+### Vote results (from Form 20)
 - Winner by alliance, with opacity scaled to vote share
 - Alliance-specific share maps (e.g., "where is TVK strongest?")
 - Lead margins — from razor-thin to landslide
 - Full vote breakdowns across all 3 cycles (2021, 2024, 2026)
 
-### 👥 Demographics (from the Electoral Roll)
+### Registered voter composition (from the Electoral Roll)
 - Dominant age band per booth (18-21 through 70+)
-- Cohort share — any age × gender combination
+- Cohort share — any age × gender combination as a share of registered voters
 - Gender ratio mapping (male-skew to female-skew)
 - Youth (<30) and elderly (60+) concentration
-- Absolute voter counts — where people physically are
+- Absolute counts — where registered voters are
 - Population pyramids on booth click
 
-### 📊 Analytics
-- Donut chart showing alliance breakdown for any cycle/constituency
-- Summary cards: valid votes, voter counts, youth/elderly share
+### Summary views
+- Donut chart showing alliance vote-share breakdown for any cycle/constituency
+- Summary cards: valid votes, registered voter counts, age composition
 - Top 5 rankings for any metric
 - Per-constituency split when viewing all constituencies combined
 
@@ -65,17 +67,15 @@ The reason this is a separate repo, not a feature added to electoral-analytics, 
 
 This is the most important thing to understand about this project:
 
-**The Electoral Roll** describes *who is registered to vote* — name, age, gender, address. It's a census of eligible voters, published as PDFs by the Election Commission.
+**The Electoral Roll** lists *who is registered to vote* — name, age, gender, address. It's a census of eligible voters, published as PDFs by the Election Commission of India.
 
-**Form 20** describes *how votes were cast* — candidate-by-candidate counts at each polling station, EVM only.
+**Form 20** records *how many votes each candidate received* at each polling station — candidate-wise counts, EVM only.
 
-These are **two completely independent datasets**. The Electoral Roll doesn't tell you how someone voted (that's a secret ballot). Form 20 doesn't tell you who the voters are (just how many voted for each candidate). By merging them at the booth level — the only unit where both datasets overlap — we can ask questions that neither can answer alone:
+These are **two completely independent datasets**. The Electoral Roll says nothing about how anyone voted (that's a secret ballot). Form 20 says nothing about who the voters are (just aggregate counts per candidate). They happen to share one common key — the polling booth number — which lets us display them side by side.
 
-- *Do younger neighborhoods vote differently than older ones?*
-- *Did the booths with the most first-time voters shift between 2021 and 2026?*
-- *Where are the gender gaps, and do they correlate with political outcomes?*
+That's all this project does: **shows them side by side**. It does not merge them into claims about how demographic groups voted. Inferring individual or group voting behavior from aggregate booth-level data is a statistical technique called *ecological inference*, and it requires careful methodology, assumptions, and uncertainty bounds. We don't do that here. We show the raw data and let you draw your own conclusions — or none at all.
 
-Every booth detail panel labels its data sources explicitly, because conflating "who can vote" with "how they voted" is the fastest way to draw wrong conclusions.
+Every booth detail panel labels its data sources explicitly, because conflating "who is registered here" with "how this booth voted" is the fastest way to draw wrong conclusions.
 
 ---
 
@@ -105,7 +105,7 @@ I'd rather overstate the limitations than understate them.
 
 **No postal votes.** Form 20 station-level data is EVM only. Postal ballots (typically 1-2% of total) aren't distributed to booths.
 
-**No individual vote attribution.** This project merges demographics (who voters *are*) with results (how the booth *voted*). It cannot and does not claim to know how any individual voted — that's protected by secret ballot. The demographic patterns are ecological, not individual.
+**No individual or group vote attribution.** This project shows two independent datasets side by side: registered voter composition and aggregate vote counts. It does not claim to know how any individual, or any demographic group, voted. Inferring that would require ecological inference — a statistical method with strong assumptions that we deliberately do not apply. The data shows correlations at the booth level. Whether those correlations mean anything causal is for you to decide, carefully.
 
 ---
 
