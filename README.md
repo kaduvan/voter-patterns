@@ -6,13 +6,23 @@
 
 ---
 
+## The status of this project
+
+This is a **prelude**. Two constituencies — Harbour and Chepauk-Thiruvallikeni — are a proof of concept. The pipeline works. The data is real. The visualizations are honest. But two ACs out of 234 in Tamil Nadu is a starting point, not a finished product.
+
+The goal is for this to grow — constituency by constituency, city by city, state by state — until every polling booth in India has its electoral data and Electoral Roll side by side on an open map. That's a lot of booths (nearly a million nationwide), and I can't do it alone.
+
+**If you're reading this and thinking "I could do this for my constituency" — you can.** The section below tells you exactly how. Fork this repo, pick an AC, follow the steps, and submit a pull request. Every contribution moves the map closer to complete.
+
+---
+
 ## Why this exists
 
 I built [electoral-analytics](https://github.com/kaduvan/electoral-analytics) to map the 2026 Tamil Nadu election across all 234 constituencies — village by village, statewide. It answered a broad question: *who won where?*
 
 But electoral results only tell you one thing: aggregate vote counts. They don't tell you who the electors in a booth are — their age, their gender, the generational makeup of a neighborhood. That information lives in a separate official document: the Electoral Roll.
 
-This project takes two constituencies — Harbour (AC018) and Chepauk-Thiruvallikeni (AC019), both in Chennai Central — and brings both datasets together at the most granular level where they overlap: the individual polling booth. Form 20 tells you how many votes each candidate got. The Electoral Roll tells you how many registered voters fall into each age and gender band. Shown side by side, they give a fuller picture of a booth than either can alone.
+This project brings both datasets together at the most granular level where they overlap: the individual polling booth. Form 20 tells you how many votes each candidate got. The Electoral Roll tells you how many registered voters fall into each age and gender band. Shown side by side, they give a fuller picture of a booth than either can alone.
 
 What this is **not**: a claim that we know how any demographic group voted. That would require ecological inference, which we deliberately don't perform. We show the data. The interpretation is yours.
 
@@ -81,7 +91,7 @@ Every booth detail panel labels its data sources explicitly, because conflating 
 
 ## Constituencies
 
-| Code | Constituency | Lok Sabha | Booths | Voters |
+| Code | Constituency | Lok Sabha | Booths | Registered voters |
 |---|---|---|---|---|
 | AC018 | Harbour | Chennai Central | 192 | ~110,000 |
 | AC019 | Chepauk-Thiruvallikeni | Chennai Central | 205 | ~132,000 |
@@ -89,7 +99,86 @@ Every booth detail panel labels its data sources explicitly, because conflating 
 
 Both are coastal Chennai constituencies — densely populated, politically competitive, and historically significant. Harbour covers the port and old trading quarters. Chepauk-Thiruvallikeni includes Triplicane, Royapettah, and the Marina beachfront.
 
-Adding more constituencies is straightforward — each AC is a config entry with its own booth list, demographics file, and Form 20 data.
+---
+
+## How to replicate this analysis for your constituency
+
+This is the guide for anyone who wants to add a constituency or build a similar map for their own city/state. It's more approachable than it looks — the hard parts are data collection (downloading PDFs) and geocoding (finding booth locations). The code does the rest.
+
+### What you'll need
+
+1. **Form 20 PDFs** — Download from the [ECI results page](https://results.eci.gov.in) for your constituency. You want the station-wise (Part-wise) results, one PDF per AC per election.
+2. **Electoral Roll PDFs** — Download from the [ECI voter portal](https://voters.eci.gov.in) or your state CEO portal. You need the draft/final electoral roll for your AC — it lists every registered voter by age, gender, and polling station.
+3. **Booth addresses** — The polling station names and addresses. These are in the Electoral Roll header pages, or available as separate PDFs from the CEO portal.
+4. **Python 3.10+** with `scipy`, `shapely`, `numpy`, and `pymupdf` (for PDF parsing).
+
+### The pipeline, step by step
+
+#### Step 1: Parse Form 20 → vote counts per booth
+
+Form 20 PDFs have a consistent structure: a table per polling station with candidate names and vote counts. Our parser (`scripts/parse_pdf.py`) extracts these into:
+
+```
+votes_acXXX_YYYY.csv     # one row per station, one column per candidate
+candidates_acXXX_YYYY.json   # candidate name → party mapping
+```
+
+The parsing is finicky — PDF layouts vary by state and year. Start with `pymupdf` to extract text blocks, then pattern-match the candidate/vote rows. Budget a few hours per state's PDF format.
+
+#### Step 2: Extract demographics from the Electoral Roll
+
+The Electoral Roll lists every voter individually. Aggregate them by polling station and age band:
+
+```
+booth_number, 18-21_Male, 18-21_Female, 18-21_Total, 22-29_Male, ...
+1, 14, 12, 26, 38, 47, 85, ...
+```
+
+Seven age bands (18-21, 22-29, 30-39, 40-49, 50-59, 60-69, 70+) × three columns (Male, Female, Total) = 21 demographic columns per booth. Our extractor (`local_voter_extract.py`) does this from the roll PDFs.
+
+#### Step 3: Geocode the booths
+
+This is the hardest part. Polling booths in India don't have published coordinates — you have to derive them from addresses. We use a tiered approach:
+
+1. **Street-level** (best): Query multiple geocoding APIs (Google, Nominatim, etc.) with the full street address. ~40% hit rate in dense urban areas.
+2. **Locality-level** (good): Fall back to the neighborhood/locality centroid. ~30% hit rate.
+3. **AC centroid** (approximate): Unknown location — place at the constituency center with reduced opacity. ~30% of booths.
+
+The result is a `booth_coords_acXXX.csv` with `part_no, lat, lon, tier, street, locality, door_no` per booth. The `tier` column drives opacity in the visualization.
+
+#### Step 4: Generate Voronoi cells
+
+Each booth becomes a polygon on the map via Voronoi tessellation, clipped to the constituency outline (concave hull of all booth points). This gives a visual proxy for "this booth serves roughly this area." Run `scripts/build_data.py` — it handles this automatically.
+
+#### Step 5: Register the constituency
+
+Add one entry to `scripts/ac_config.py`:
+
+```python
+"AC017": {
+    "name": "Your Constituency Name",
+    "state": "Tamil Nadu",
+    "pc": "Chennai Central",
+    "center": [13.08, 80.27],          # lat, lon of AC center
+    "prefix": "ac017",                 # filename prefix for data files
+    "booth_list": "data/booths_ac017.csv",
+    "demographics": "data/demographics_ac017.csv",
+    "form20": {"2026": "...", "2024": "...", "2021": "..."},
+    "geocode": {"key": "..."},         # optional geocoding API key
+},
+```
+
+Then run `python scripts/build_data.py`. The AC selector, donut chart, summaries, map — everything updates automatically.
+
+### Submitting your work
+
+1. Fork this repo
+2. Add your constituency data (CSVs in `data/`, config entry in `ac_config.py`)
+3. Run `python scripts/build_data.py` to regenerate `data.json`
+4. Test locally: `cd site && python -m http.server 8000`
+5. Open a pull request
+
+I'll review, merge, and deploy. Your constituency goes live within minutes.
 
 ---
 
@@ -127,18 +216,20 @@ I'd rather overstate the limitations than understate them.
 ```
 ├── site/
 │   ├── index.html              # App shell
-│   ├── style.css               # Dark theme
+│   ├── style.css               # Stylesheet
 │   ├── app.js                  # Map + sidebar logic
 │   └── data.json               # Generated payload (790 KB)
 ├── scripts/
-│   ├── build_data.py           # Pipeline: CSV → data.json
+│   ├── build_data.py           # Pipeline: raw CSVs → data.json
 │   ├── ac_config.py            # Constituency registry
 │   ├── alliances.py            # Party → alliance + colors
 │   ├── parse_form20.py         # Form 20 PDF parser
 │   ├── parse_pdf.py            # Candidate extraction
-│   ├── geocode_booths.py       # Tiered geocoding
-│   └── compute_ei.py           # Ecological inference (research)
-├── data/                       # Source CSVs + JSONs
+│   ├── parse_booths_ac018.py   # Booth list parser
+│   ├── geocode_booths.py       # Tiered geocoding pipeline
+│   └── compute_ei.py           # Ecological inference (experimental)
+├── data/                       # Source CSVs + JSONs per AC per cycle
+├── extracted_pdfs/             # Source Electoral Roll PDFs [gitignored]
 └── README.md
 ```
 
@@ -166,14 +257,6 @@ python scripts/build_data.py
 # Output: site/data.json
 ```
 
-### Add a constituency
-
-1. Add an entry to `scripts/ac_config.py`
-2. Prepare data files: `booth_coords_acXXX.csv`, `votes_acXXX_{year}.csv`, `candidates_acXXX_{year}.json`, demographics CSV
-3. Run `python scripts/build_data.py`
-
-The AC selector, donut chart, summaries, and map update automatically.
-
 ---
 
 ## Party colors & alliances
@@ -190,6 +273,20 @@ Colors follow established Tamil Nadu political conventions, tuned for the light 
 | BSP | 🔵 Blue `#1E40D1` | Bahujan Samaj Party | 2021, 2024, 2026 |
 
 Alliance mappings are **cycle-specific** — parties switch fronts between elections. All defined in `scripts/alliances.py`.
+
+---
+
+## Contributing
+
+This project grows one constituency at a time. If you can:
+
+- **Add a constituency** — follow the guide above, open a PR
+- **Improve the parsers** — Form 20 and Electoral Roll PDFs vary wildly by state; better parsers mean more constituencies can be processed
+- **Improve geocoding** — street-level hit rates are low (~40%); better geocoding means fewer approximate booth locations
+- **Add features** — the frontend is vanilla JS, easy to extend
+- **Report data errors** — if you spot a mismatch between our data and the official ECI PDFs, open an issue with the booth number and cycle
+
+Every contribution moves the map closer to covering all of India.
 
 ---
 
