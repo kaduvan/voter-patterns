@@ -18,6 +18,7 @@ import numpy as np
 import shapely
 from scipy.spatial import Voronoi
 from shapely.geometry import MultiPoint, Polygon, box, mapping
+from shapely.ops import transform as shp_transform
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import ac_config
@@ -34,6 +35,9 @@ BAND_COLORS = {
 HULL_RATIO = 0.2
 HULL_BUFFER = 0.0006
 SLIVER_AREA = 1e-7
+SIMPLIFY_TOL = 0.000008  # ~0.9m
+COORD_DECIMALS = 5  # 1.1m precision
+TOP_SHARES = 5  # keep top-N shares per booth
 CYCLES = [2026, 2024, 2021]
 
 
@@ -129,7 +133,10 @@ def build_one(ac_name):
             geom = box(float(coords[part_no]["lon"]) - d, float(coords[part_no]["lat"]) - d,
                        float(coords[part_no]["lon"]) + d, float(coords[part_no]["lat"]) + d)
         else:
-            geom = cell.simplify(0.000005, preserve_topology=True)
+            geom = cell.simplify(SIMPLIFY_TOL, preserve_topology=True)
+        def _round_coords(g):
+            return shp_transform(lambda x, y, z=None: (round(x, COORD_DECIMALS), round(y, COORD_DECIMALS)), g)
+        geom = _round_coords(geom)
 
         c = coords[part_no]
         dd = demo[part_no]
@@ -157,7 +164,10 @@ def build_one(ac_name):
                     winner = max(shares, key=shares.get)
                     sorted_shares = sorted(shares.values(), reverse=True)
                     margin = sorted_shares[0] - (sorted_shares[1] if len(sorted_shares) > 1 else 0)
-                    cycle_votes[y] = {"shares": shares, "winner": winner,
+                    top = dict(sorted(shares.items(), key=lambda x: -x[1])[:TOP_SHARES])
+                    if winner not in top:
+                        top[winner] = shares[winner]
+                    cycle_votes[y] = {"shares": top, "winner": winner,
                                       "margin": round(margin, 4)}
 
         cohort_shares = {}
@@ -418,6 +428,16 @@ _HTML_BODY = r"""
       </div>
       <div class="tier-note" id="tierNote"></div>
     </div>
+    <div class="section">
+      <h3>Data &amp; Limitations</h3>
+      <div class="limits-note">
+        <div><b>Demo</b> = Electoral Roll (registered voters). <b>Votes</b> = Form 20 (EVM ballots). Independent datasets.</div>
+        <div><b>Voronoi cells</b> are approximations, not official booth boundaries.</div>
+        <div><b>Centroid</b> booths (faded) have unknown precise locations.</div>
+        <div><b>2024</b> is Lok Sabha (Chennai Central PC), not Assembly.</div>
+        <div><b>No postal ballots</b> in booth-level data.</div>
+      </div>
+    </div>
   </div></div>
   <div class="info-panel" id="infoPanel">
     <div class="mini" style="color:var(--accent);margin-bottom:6px">BOOTH DETAIL</div>
@@ -426,6 +446,7 @@ _HTML_BODY = r"""
       <button id="closeInfo" class="xbtn">&times;</button>
     </div>
     <div class="sub" id="infoSub"></div>
+    <div class="src-label">👥 ELECTORAL ROLL &mdash; Age &times; gender distribution</div>
     <div class="pyramid" id="pyramid"></div>
     <table id="infoTable"></table>
     <div id="infoVotes"></div>
@@ -441,7 +462,8 @@ let vmode = 'winner', valliance = null;
 let dmode = 'dominant', dage = '18-21', dsex = 'All', dyaxis = 'youth_share';
 let dabs = '18-21', dskew = '18-21';
 let selPart = null, cellLayer = null, outlineLayer = null, labelLayer = null;
-let baseDark, baseSat, baseActive;
+let baseGrey, baseSat, baseActive;
+let legFilter = null;
 
 // ---- helpers: AC filtering ----
 function visFeatures() {
@@ -455,6 +477,13 @@ function getCs(yr) {
 function selAcName() {
   if (selectedAc === 'ALL') return 'all constituencies';
   return P.acs[selectedAc].name;
+}
+function legFilteredFeatures() {
+  const fs = visFeatures();
+  if (legFilter === null) return fs;
+  if (domain==='votes') return fs.filter(f=>{const cv=f.properties.votes[cycle];return cv && cv.winner===legFilter;});
+  if (dmode==='dominant') return fs.filter(f=>f.properties.dominant_band===legFilter);
+  return fs;
 }
 
 document.getElementById('tierNote').innerHTML =
@@ -566,16 +595,23 @@ function render(){
 
 function renderHeadline(){
   let h='';
+  if(legFilter!==null){
+    const fs=legFilteredFeatures();
+    if(domain==='votes'){
+      h='Filtered: <b>'+fs.length+' booths</b> where '+legFilter+' won in '+cycle;
+    } else {
+      h='Filtered: <b>'+fs.length+' booths</b> with dominant age band '+legFilter;
+    }
+    document.getElementById('headline').innerHTML=h;return;
+  }
   if(domain==='votes'){
     const cs=getCs(cycle);
     if(cs){
-      const w=cs.winner, ws=cs.alliance_shares[w];
       const sorted=Object.entries(cs.alliance_shares).sort((a,b)=>b[1]-a[1]);
-      const ru=sorted[1];
-      const margin=(ws-(ru?ru[1]:0))*100;
-      h='<span style="color:'+(P.alliance_colors[w]||'#fff')+';font-weight:600">'+w+'</span> won '+
-        selAcName()+' '+cycle+' with '+(ws*100).toFixed(1)+'% of valid votes';
-      if(ru) h+=', ahead of '+(P.alliance_colors[ru[0]]?'<span style="color:'+P.alliance_colors[ru[0]]+'">'+ru[0]+'</span>':ru[0])+' by '+margin.toFixed(1)+'pts';
+      const top=sorted[0], sec=sorted[1];
+      h='<span style="color:'+(P.alliance_colors[top[0]]||'#fff')+';font-weight:600">'+top[0]+'</span> led '+
+        selAcName()+' '+cycle+' with '+(top[1]*100).toFixed(1)+'% of valid votes';
+      if(sec) h+=', '+(P.alliance_colors[sec[0]]?'<span style="color:'+P.alliance_colors[sec[0]]+'">'+sec[0]+'</span>':sec[0])+' was second at '+(sec[1]*100).toFixed(1)+'%';
     }
   } else {
     if(dmode==='youth'){
@@ -602,10 +638,10 @@ function renderHeadline(){
 function renderLegend(){
   let html='', title='';
   if(domain==='votes'){
-    if(vmode==='winner'){title='Winner by alliance';
+    if(vmode==='winner'){title='Winner by alliance \u2014 click to filter';
       const cs=getCs(cycle);
       if(cs){const sorted=Object.entries(cs.alliance_shares).sort((a,b)=>b[1]-a[1]);const top=sorted.slice(0,6);const rest=sorted.slice(6);const restPct=rest.reduce((s,[,v])=>s+v,0);
-        html='<div class="legend-cats">'+top.map(([a,s])=>'<span><i style="background:'+(P.alliance_colors[a]||'#888')+'"></i>'+a+' ('+(s*100).toFixed(1)+'%)</span>').join('')+(restPct>0?'<span><i style="background:#555"></i>Others ('+(restPct*100).toFixed(1)+'%)</span>':'')+'</div>';}
+        html='<div class="legend-cats">'+top.map(([a,s])=>'<span class="leg-click'+(legFilter===a?' active':'')+'" data-leg="'+a+'"><i style="background:'+(P.alliance_colors[a]||'#888')+'"></i>'+a+' ('+(s*100).toFixed(1)+'%)</span>').join('')+(restPct>0?'<span class="leg-click'+(legFilter==='Others'?' active':'')+'" data-leg="Others"><i style="background:#555"></i>Others ('+(restPct*100).toFixed(1)+'%)</span>':'')+'<span class="leg-clear" data-leg="" style="grid-column:1/-1;'+(legFilter===null?'display:none':'')+'">\u2715 clear filter</span></div>';}
     } else if(vmode==='share'){title=valliance+' vote share';
       html='<div class="legend-bar" style="background:linear-gradient(to right,rgb(26,26,46),rgb(79,195,247),rgb(255,241,118))"></div>'+
         '<div class="legend-labels"><span>0%</span><span>35%</span><span>70%+</span></div>';
@@ -614,26 +650,33 @@ function renderLegend(){
         '<div class="legend-labels"><span>close (0%)</span><span>20%</span><span>landslide (40%+)</span></div>';
     }
   } else {
-    const titles={dominant:'Dominant age band',cohort:'Cohort share',gender:'Male share',youth:dyaxis==='youth_share'?'Youth share (<30)':'Elderly share (60+)',absolute:'Absolute count ('+dabs+')',bandskew:'Male share within '+dskew};
+    const titles={dominant:'Dominant age band \u2014 click to filter',cohort:'Cohort share',gender:'Male share',youth:dyaxis==='youth_share'?'Youth share (<30)':'Elderly share (60+)',absolute:'Absolute count ('+dabs+')',bandskew:'Male share within '+dskew};
     title=titles[dmode];
-    if(dmode==='dominant'){html='<div class="legend-cats">'+P.age_bands.map(b=>'<span><i style="background:'+P.band_colors[b]+'"></i>'+b+'</span>').join('')+'</div>';}
+    if(dmode==='dominant'){html='<div class="legend-cats">'+P.age_bands.map(b=>'<span class="leg-click'+(legFilter===b?' active':'')+'" data-leg="'+b+'"><i style="background:'+P.band_colors[b]+'"></i>'+b+'</span>').join('')+'<span class="leg-clear" data-leg="" style="grid-column:1/-1;'+(legFilter===null?'display:none':'')+'">\u2715 clear filter</span></div>';}
     else if(dmode==='gender'||dmode==='bandskew'){html='<div class="legend-bar" style="background:linear-gradient(to right,rgb(236,72,153),rgb(59,59,92),rgb(79,195,247))"></div><div class="legend-labels"><span>F female-skew</span><span>50/50</span><span>male-skew M</span></div>';}
     else if(dmode==='cohort'){const m=cohortMean();html='<div class="legend-bar" style="background:linear-gradient(to right,rgb(26,26,46),rgb(79,195,247),rgb(255,241,118))"></div><div class="legend-labels"><span>0.4x avg</span><span>1.0x ('+(m*100).toFixed(1)+'%)</span><span>1.6x avg</span></div>';}
     else {const ramp=dmode==='youth'?(dyaxis==='youth_share'?'rgb(46,196,182)':'rgb(157,78,221)'):'rgb(79,195,247)';html='<div class="legend-bar" style="background:linear-gradient(to right,rgb(13,27,42),'+ramp+',rgb(255,209,102))"></div><div class="legend-labels"><span>low</span><span>medium</span><span>high</span></div>';}
   }
   document.getElementById('legendTitle').textContent=title;
   document.getElementById('legendBody').innerHTML=html;
+  document.querySelectorAll('.leg-click,.leg-clear').forEach(el=>el.addEventListener('click',()=>{
+    const v=el.dataset.leg;
+    legFilter = v===''?null:v;
+    render(); renderSummary(); renderHeadline();
+  }));
 }
 
 function renderSummary(){
   let cards=[], toplabel='', metric=null, fmt=null;
-  const fs=visFeatures();
+  const filtered = legFilter!==null;
+  const fs=filtered?legFilteredFeatures():visFeatures();
+  const filterNote = filtered?' ('+fs.length+' matching \u201c'+legFilter+'\u201d)':'';
   if(domain==='votes'){
     const cs=getCs(cycle);
     const tv = cs?cs.total_valid:0;
     const wc = fs.filter(f=>f.properties.votes[cycle]).length;
-    cards=[['Valid votes',tv.toLocaleString(),''],['Booths w/ data',wc,''],['Cycle',cycle,'']];
-    if(cs){toplabel='Booths where '+(valliance||cs.winner)+' leads';metric=p=>{const cv=p.votes[cycle];return cv?cv.shares[valliance||cv.winner]||0:0;};fmt=v=>(v*100).toFixed(1)+'%';}
+    cards=[['Valid votes',tv.toLocaleString(),''],['Booths',wc,''],['Cycle',cycle,'']];
+    if(cs){toplabel='Booths where '+(valliance||cs.winner)+' leads'+filterNote;metric=p=>{const cv=p.votes[cycle];return cv?cv.shares[valliance||cv.winner]||0:0;};fmt=v=>(v*100).toFixed(1)+'%';}
   } else {
     let yT=0,eT=0,tot=0,mT=0,fT=0;
     for(const f of fs){const p=f.properties;tot+=p.total;mT+=p.total_male;fT+=p.total_female;yT+=p.bands['18-21'].Total+p.bands['22-29'].Total;eT+=p.bands['60-69'].Total+p.bands['70+'].Total;}
@@ -701,17 +744,18 @@ function renderOutline(){if(outlineLayer)outlineLayer.remove();if(!document.getE
 function selectBooth(uid){
   selPart=uid;const f=P.geojson.features.find(x=>x.properties.uid===uid);if(!f)return;const p=f.properties;
   document.getElementById('infoTitle').textContent=p.ac.replace('AC','')+' Part '+p.part_no;
-  document.getElementById('infoSub').innerHTML=(p.street||p.locality||'?')+' &middot; '+p.total.toLocaleString()+' voters &middot; M '+p.total_male+'/F '+p.total_female+' &middot; '+p.tier;
+  document.getElementById('infoSub').innerHTML=(p.street||p.locality||'?')+' &middot; '+p.total.toLocaleString()+' voters &middot; M '+p.total_male+'/F '+p.total_female+' &middot; geocode: '+p.tier;
   let mx=0;for(const b of P.age_bands)mx=Math.max(mx,p.bands[b].Total);
   let py='';for(const b of P.age_bands){const bd=p.bands[b];const mh=bd.Total>0?(bd.Male/mx*100):0,fh=bd.Total>0?(bd.Female/mx*100):0;py+='<div class="pcol"><div class="pseg" style="height:'+fh+'%;background:#ec4899" title="'+b+' F '+bd.Female+'"></div><div class="pseg" style="height:'+mh+'%;background:#4fc3f7" title="'+b+' M '+bd.Male+'"></div></div>';}
   document.getElementById('pyramid').innerHTML=py;
   let t='<tr><th>Band</th><th>M</th><th>F</th><th>Tot</th><th>%</th></tr>';
   for(const b of P.age_bands){const bd=p.bands[b];const pct=p.total?(bd.Total/p.total*100).toFixed(1):'0.0';const w=mx?(bd.Total/mx*100).toFixed(0):0;t+='<tr><td>'+b+'</td><td>'+bd.Male+'</td><td>'+bd.Female+'</td><td>'+bd.Total+'</td><td><span class="bar" style="width:'+(w*0.5)+'px;background:'+P.band_colors[b]+'"></span> '+pct+'%</td></tr>';}
   document.getElementById('infoTable').innerHTML=t;
-  let vh='<div class="mini" style="margin-top:8px">Vote shares by cycle</div>';
+  let vh='<div class="src-label">🗳 FORM 20 &mdash; Vote shares by cycle (EVM only)</div>';
   for(const y of P.cycles){const cv=p.votes[y];if(!cv){vh+='<div class="wb-row"><span class="yr">'+y+'</span> no data</div>';continue;}
     const sorted=Object.entries(cv.shares).sort((a,b)=>b[1]-a[1]);
     vh+='<div class="wb-row"><span class="yr">'+y+'</span> '+sorted.map(([a,s])=>'<span class="wb-mini"><span class="wb-dot" style="background:'+(P.alliance_colors[a]||'#888')+'"></span>'+a+' '+(s*100).toFixed(0)+'%</span>').join(' ')+'</div>';}
+  vh+='<div class="src-note">Top shares shown. Demographics above are from the Electoral Roll; votes are from Form 20 (EVM). These are independent datasets &mdash; one describes who can vote, the other how they voted.</div>';
   document.getElementById('infoVotes').innerHTML=vh;
   document.getElementById('infoPanel').style.display='block';render();
 }
@@ -725,7 +769,7 @@ function buildAcBtns(){
   }
   document.getElementById('acBtns').innerHTML=html;
   document.querySelectorAll('.ac-btn').forEach(b=>b.addEventListener('click',()=>{
-    selectedAc=b.dataset.ac;
+    selectedAc=b.dataset.ac;legFilter=null;
     document.querySelectorAll('.ac-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');
     valliance=null;
     buildAllianceBtns(); render(); renderOutline();
@@ -741,7 +785,7 @@ function buildAcBtns(){
 
 function buildControls(){
   document.getElementById('cycleBtns').innerHTML=P.cycles.map(y=>'<button class="cycle-btn'+(y===cycle?' active':'')+'" data-cycle="'+y+'">'+y+'</button>').join('');
-  document.querySelectorAll('.cycle-btn').forEach(b=>b.addEventListener('click',()=>{cycle=+b.dataset.cycle;document.querySelectorAll('.cycle-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(!valliance){const cs=getCs(cycle);valliance=cs?cs.winner:null;}buildAllianceBtns();render();}));
+  document.querySelectorAll('.cycle-btn').forEach(b=>b.addEventListener('click',()=>{cycle=+b.dataset.cycle;legFilter=null;document.querySelectorAll('.cycle-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');if(!valliance){const cs=getCs(cycle);valliance=cs?cs.winner:null;}buildAllianceBtns();render();}));
   document.getElementById('ageBtns').innerHTML=P.age_bands.map(b=>'<label><input type="radio" name="age" value="'+b+'"'+(b===dage?' checked':'')+'> '+b+'</label>').join('');
   document.getElementById('absBtns').innerHTML=P.age_bands.map(b=>'<button class="chip'+(b===dabs?' active':'')+'" data-abs="'+b+'">'+b+'</button>').join('');
   document.getElementById('skewBtns').innerHTML=P.age_bands.map(b=>'<button class="chip'+(b===dskew?' active':'')+'" data-skew="'+b+'">'+b+'</button>').join('');
@@ -767,11 +811,11 @@ function updateStats(){
 
 // ---- event wiring ----
 document.querySelectorAll('.domain-btn').forEach(b=>b.addEventListener('click',()=>{
-  document.querySelectorAll('.domain-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');domain=b.dataset.domain;
+  document.querySelectorAll('.domain-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');domain=b.dataset.domain;legFilter=null;
   document.getElementById('votesControls').style.display=domain==='votes'?'block':'none';
   document.getElementById('demoControls').style.display=domain==='demo'?'block':'none';render();}));
-document.querySelectorAll('.vmode-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.vmode-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');vmode=b.dataset.vmode;document.getElementById('shareControls').style.display=vmode==='share'?'block':'none';render();}));
-document.querySelectorAll('.dmode-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.dmode-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');dmode=b.dataset.dmode;
+document.querySelectorAll('.vmode-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.vmode-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');vmode=b.dataset.vmode;legFilter=null;document.getElementById('shareControls').style.display=vmode==='share'?'block':'none';render();}));
+document.querySelectorAll('.dmode-btn').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.dmode-btn').forEach(x=>x.classList.remove('active'));b.classList.add('active');dmode=b.dataset.dmode;legFilter=null;
   document.getElementById('cohortControls').style.display=dmode==='cohort'?'block':'none';
   document.getElementById('youthControls').style.display=dmode==='youth'?'block':'none';
   document.getElementById('absControls').style.display=dmode==='absolute'?'block':'none';
@@ -846,6 +890,14 @@ _CSS = """
   .legend-cats{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px;font-size:10.5px;color:var(--text-dim);margin-top:4px;}
   .legend-cats span{display:flex;align-items:center;gap:5px;}
   .legend-cats i{width:10px;height:10px;border-radius:2px;display:inline-block;}
+  .leg-click{cursor:pointer;padding:2px 5px;border-radius:4px;transition:all .15s;border:1px solid transparent;}
+  .leg-click:hover{background:var(--panel2);border-color:var(--accent);}
+  .leg-click.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent);font-weight:600;}
+  .leg-clear{cursor:pointer;padding:3px 6px;border-radius:4px;font-size:10px;color:var(--accent);text-align:center;margin-top:2px;}
+  .leg-clear:hover{text-decoration:underline;}
+  .limits-note{font-size:10px;color:var(--text-dim);line-height:1.6;display:flex;flex-direction:column;gap:5px;}
+  .limits-note div{padding:4px 8px;background:var(--panel2);border-radius:5px;}
+  .limits-note b{color:var(--accent);font-weight:600;}
   .cards{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px;}
   .card{background:var(--panel2);border-radius:7px;padding:8px 10px;}
   .card .k{font-size:10px;color:var(--text-dim);text-transform:uppercase;letter-spacing:.4px;}
