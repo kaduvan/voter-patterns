@@ -1,74 +1,85 @@
-# 🗺️ Chennai Booth Analytics — Harbour & Chepauk-Thiruvallikeni
+# voter-patterns
 
-An open-source, interactive booth-level electoral analytics platform for Chennai's coastal constituencies. Every polling booth is a polygon on the map — colored by who won, how decisively, who lives there, and how the neighborhood voted across three election cycles.
+**Booth-level electoral intelligence for Chennai — who voted, where they live, and how it shifted across three elections.**
 
-🔗 **Live demo: [kaduvan.github.io/voter-patterns](https://kaduvan.github.io/voter-patterns/)**
-
-**Key question this answers:** *How did each polling booth in Harbour and Chepauk-Thiruvallikeni vote in 2021, 2024, and 2026 — and who are the voters behind those numbers?*
+🔗 **Live: [kaduvan.github.io/voter-patterns](https://kaduvan.github.io/voter-patterns/)**
 
 ---
 
-## 🌟 What This Is
+## Why this exists
 
-Most election dashboards stop at constituency-level winners. We go deeper — to the **individual polling booth** (Part), the smallest unit where votes are counted and reported in India.
+I built [electoral-analytics](https://github.com/kaduvan/electoral-analytics) to map the 2026 Tamil Nadu election across all 234 constituencies — village by village, statewide. It answered a broad question: *who won where?*
 
-Each booth has:
-- **A geographic footprint** — a Voronoi cell clipped to the constituency outline
-- **Full vote breakdowns** — candidate-by-candidate vote counts from official ECI Form 20 PDFs
-- **Complete voter demographics** — age bands (18–21 through 70+), gender, and cohort analysis from the Electoral Roll
-- **Three cycles of history** — 2021 Assembly, 2024 Lok Sabha, and 2026 Assembly
+But the closer you look at an election, the more you realize that constituency-level and even village-level results only tell you half the story. They tell you **how people voted**. They don't tell you **who those voters are** — their age, their gender, the generational makeup of a neighborhood. Without the Electoral Roll, you're looking at outcomes without the people behind them.
 
-This isn't a prediction tool or a partisan project. It's a transparency tool — built to help citizens, journalists, researchers, and campaigns understand how Chennai votes, booth by booth.
+**voter-patterns** is the project that fixes that. It takes two constituencies — Harbour (AC018) and Chepauk-Thiruvallikeni (AC019), both in Chennai Central — and goes all the way down to the individual polling booth. Not just *who won this street*, but *who lives on this street, and did they change their mind?*
 
 ---
 
-## 📖 How to Use
+## How it differs from [electoral-analytics](https://github.com/kaduvan/electoral-analytics)
 
-### Getting Started
+| | electoral-analytics | voter-patterns (this repo) |
+|---|---|---|
+| **Geography** | Village-level (estimated via name matching) | **Booth-level** (exact — no estimation) |
+| **Data sources** | Form 20 votes only | **Form 20 votes + Electoral Roll demographics** |
+| **Demographics** | None | Age × gender, 7 bands, population pyramids |
+| **Elections** | 2026 only | **2021, 2024, 2026** (3 cycles) |
+| **Coverage** | 234 ACs, 9,809 villages (statewide) | 2 ACs, 397 booths (hyperlocal) |
+| **Data quality** | Village votes estimated (65.6% station match rate) | Booth votes exact (100% — source data is per-booth) |
+| **Time depth** | Single snapshot | Track how the same booth shifted across 5 years |
+| **File size** | 39.5 MB monolith | 790 KB data + modular HTML/CSS/JS |
 
-1. **Open the map** — Simply open `site/index.html` in a modern browser (Chrome recommended)
-2. **Explore** — The map (left) shows every booth as a clickable polygon. The sidebar (right) has the analytics.
+**In short:** electoral-analytics is breadth (the whole state). voter-patterns is depth (every booth, every voter, every cycle). They're complementary — use electoral-analytics to see the macro picture, then drop into voter-patterns when you need to understand *why* a neighborhood voted the way it did.
 
-> 💡 **Tip:** For best performance: `cd site && python -m http.server 8000`, then open `http://localhost:8000/`
-
-### 🗺️ The Map
-
-Each colored polygon is a single polling booth. The color depends on your selected view:
-
-**Votes domain:**
-| View | What it shows |
-|---|---|
-| **Winner** | Each booth colored by its winning alliance. Opacity reflects vote share — darker = landslide, lighter = close contest |
-| **Alliance share** | A single alliance's vote share across all booths, on a gradient from low to high |
-| **Lead margin** | How decisively the winner won — from razor-thin (dark) to blowout (bright) |
-
-**Demographics domain:**
-| View | What it shows |
-|---|---|
-| **Dominant age** | Modal age band per booth (18-21, 22-29, 30-39, 40-49, 50-59, 60-69, 70+) |
-| **Cohort share** | Any age × gender combination's share of voters, on a gradient |
-| **Gender ratio** | Male-skew (blue) to female-skew (pink) across booths |
-| **Youth / Elderly** | Share of under-30 or 60+ voters per booth |
-| **Absolute count** | Raw headcount of a cohort — where voters physically are |
-| **Band gender skew** | Gender split within a specific age band |
-
-### 📊 The Sidebar
-
-- **Donut chart** — Real-time alliance breakdown for the selected cycle and constituency. Always visible in the sticky top section.
-- **Constituency selector** — Switch between "All" (combined view) or individual constituencies. The map zooms accordingly.
-- **Cycle switcher** — 2026 / 2024 / 2021. All views update instantly.
-- **Summary cards** — Valid votes, booth coverage, voter demographics at a glance.
-- **Top 5 list** — Rankings for the current metric (e.g., "Top 5 booths where SPA leads").
-- **Booth detail panel** — Click any booth for a population pyramid, full vote history across cycles, and age-band breakdown.
-
-### Map Controls
-- **Satellite toggle** — Switch between CARTO dark basemap and Esri satellite imagery
-- **Outlines** — Show/hide constituency boundary
-- **Labels** — Show/hide booth part numbers on the map
+The reason this is a separate repo, not a feature added to electoral-analytics, is that they solve fundamentally different problems with different data pipelines. electoral-analytics aggregates Form 20 PDFs statewide. voter-patterns merges two independent datasets — the Electoral Roll (who can vote) and Form 20 (how they voted) — at the most granular level possible. The architecture, data sources, and analysis are distinct enough that forcing them together would compromise both.
 
 ---
 
-## 🏘️ Constituencies Covered
+## What you can explore
+
+**397 polling booths** across two constituencies, each rendered as an interactive Voronoi cell on a light basemap. Click any booth to see:
+
+### 🗳️ Votes (from Form 20)
+- Winner by alliance, with opacity scaled to vote share
+- Alliance-specific share maps (e.g., "where is TVK strongest?")
+- Lead margins — from razor-thin to landslide
+- Full vote breakdowns across all 3 cycles (2021, 2024, 2026)
+
+### 👥 Demographics (from the Electoral Roll)
+- Dominant age band per booth (18-21 through 70+)
+- Cohort share — any age × gender combination
+- Gender ratio mapping (male-skew to female-skew)
+- Youth (<30) and elderly (60+) concentration
+- Absolute voter counts — where people physically are
+- Population pyramids on booth click
+
+### 📊 Analytics
+- Donut chart showing alliance breakdown for any cycle/constituency
+- Summary cards: valid votes, voter counts, youth/elderly share
+- Top 5 rankings for any metric
+- Per-constituency split when viewing all constituencies combined
+
+---
+
+## The two datasets — and why they're independent
+
+This is the most important thing to understand about this project:
+
+**The Electoral Roll** describes *who is registered to vote* — name, age, gender, address. It's a census of eligible voters, published as PDFs by the Election Commission.
+
+**Form 20** describes *how votes were cast* — candidate-by-candidate counts at each polling station, EVM only.
+
+These are **two completely independent datasets**. The Electoral Roll doesn't tell you how someone voted (that's a secret ballot). Form 20 doesn't tell you who the voters are (just how many voted for each candidate). By merging them at the booth level — the only unit where both datasets overlap — we can ask questions that neither can answer alone:
+
+- *Do younger neighborhoods vote differently than older ones?*
+- *Did the booths with the most first-time voters shift between 2021 and 2026?*
+- *Where are the gender gaps, and do they correlate with political outcomes?*
+
+Every booth detail panel labels its data sources explicitly, because conflating "who can vote" with "how they voted" is the fastest way to draw wrong conclusions.
+
+---
+
+## Constituencies
 
 | Code | Constituency | Lok Sabha | Booths | Voters |
 |---|---|---|---|---|
@@ -76,128 +87,70 @@ Each colored polygon is a single polling booth. The color depends on your select
 | AC019 | Chepauk-Thiruvallikeni | Chennai Central | 205 | ~132,000 |
 | | **Combined** | | **397** | **~242,000** |
 
-The architecture supports adding more constituencies — each AC is a config entry in `scripts/ac_config.py` with its own booth list, demographics file, and Form 20 data.
+Both are coastal Chennai constituencies — densely populated, politically competitive, and historically significant. Harbour covers the port and old trading quarters. Chepauk-Thiruvallikeni includes Triplicane, Royapettah, and the Marina beachfront.
+
+Adding more constituencies is straightforward — each AC is a config entry with its own booth list, demographics file, and Form 20 data.
 
 ---
 
-## 📊 Data Sources & Pipeline
+## Limitations — what this data cannot tell you
 
-### Where the Data Comes From
+I'd rather overstate the limitations than understate them.
 
-| Source | What it provides |
-|---|---|
-| **ECI Form 20 PDFs** | Official station-level vote counts for every candidate (2021, 2024, 2026) |
-| **Electoral Roll PDFs** | Per-booth voter demographics: age, gender, and totals |
-| **Election Commission Booth Lists** | Polling station names, addresses, and part numbers |
-| **Manual Geocoding** | Lat/lon for every booth using a tiered system (street > locality > centroid) |
+**Voronoi cells are approximations, not boundaries.** Polling booths in India don't have defined geographic territories. We generate Voronoi cells from booth coordinates, clipped to the constituency outline. It's a visual proxy for "this booth serves roughly this area" — not an official service-area map.
 
-### How It's Built
+**Centroid booths have unknown locations.** Some booths couldn't be geocoded to street level. They appear at their locality centroid or AC center, with reduced opacity. Their vote and demographic data is still accurate — only the position is approximate.
 
-```
-Form 20 PDFs → Parsed to CSV (candidate × booth votes)
-                  ↓
-Electoral Roll PDFs → Extracted to age × gender × band per booth
-                  ↓
-Booth addresses → Geocoded (street-level → locality → AC centroid fallback)
-                  ↓
-Voronoi tessellation → Each booth gets a polygon, clipped to AC outline
-                  ↓
-All embedded as JSON → Single self-contained HTML file
-```
+**2024 was Lok Sabha, not Assembly.** The 2024 cycle was the Chennai Central Parliamentary election. The booth-level votes are real, but the contest was PC-wide. Don't compare 2024 alliance shares directly with 2021/2026 Assembly shares.
 
-### Geocoding Tiers
+**No postal votes.** Form 20 station-level data is EVM only. Postal ballots (typically 1-2% of total) aren't distributed to booths.
 
-Every booth is geocoded at one of three precision levels:
-
-| Tier | Precision | Method |
-|---|---|---|
-| `street` | Best | Exact street address matched via multiple geocoding services |
-| `locality` | Good | Matched to neighborhood/locality centroid |
-| `ac_centroid` | Approximate | Booth location unknown — placed at AC center with reduced opacity |
-
-Hover any booth to see its geocoding tier. Centroid booths are approximate and shown at lower opacity.
+**No individual vote attribution.** This project merges demographics (who voters *are*) with results (how the booth *voted*). It cannot and does not claim to know how any individual voted — that's protected by secret ballot. The demographic patterns are ecological, not individual.
 
 ---
 
-## ⚠️ Methodology & Limitations
-
-We believe in being honest about what the data can and cannot tell you.
-
-### Voronoi Approximation
-Booth polygons are **not official boundaries**. Polling booths in India don't have defined geographic territories. We use Voronoi tessellation from booth coordinates, clipped to the constituency outline. This gives a reasonable visual proxy — not a precise service-area map.
-
-### Geocoding Gaps
-Some booths could not be geocoded to street level. These appear at locality centroids or AC center, with reduced opacity. Vote data for these booths is still accurate — only the position is approximate.
-
-### 2024 is Lok Sabha
-The 2024 cycle was a Parliamentary (Lok Sabha) election for Chennai Central PC. The booth-level votes are still booth-level — but the contest was PC-wide, not AC-wide. Alliance totals for 2024 reflect the Chennai Central Lok Sabha contest, not an Assembly contest.
-
-### No Postal Votes
-Station-level Form 20 data is EVM-only. Postal votes (typically 1-2% of total) are not distributed to individual booths.
-
-### Candidate Name Variations
-Names parsed from PDFs may have minor spelling variations across cycles.
-
----
-
-## 🛠️ Tech Stack
+## Tech stack
 
 | Layer | Technology |
 |---|---|
-| **Map rendering** | Leaflet.js 1.9.4 (CDN) |
-| **Basemaps** | CARTO Dark Matter + Esri World Imagery |
-| **Voronoi cells** | scipy.spatial.Voronoi + shapely concave_hull |
-| **Data pipeline** | Python 3.12 |
-| **PDF parsing** | Custom Form 20 + Electoral Roll extractors |
-| **Output** | Single self-contained HTML (~950 KB, all data embedded) |
-
-No build step, no server, no framework. Just Python → HTML.
+| Map | Leaflet.js 1.9.4 |
+| Basemap | CARTO Positron (light) + Esri satellite |
+| Voronoi tessellation | scipy.spatial.Voronoi + shapely concave_hull |
+| Data pipeline | Python 3.12 |
+| PDF parsing | Custom Form 20 + Electoral Roll extractors |
+| Frontend | Vanilla HTML/CSS/JS — no framework, no build step |
 
 ---
 
-## 📁 Project Structure
+## Project structure
 
 ```
-harbour/
 ├── site/
-│   ├── index.html              # 🗺️ Main app (loads data.json + app.js + style.css)
-│   ├── style.css               # Dark theme stylesheet
-│   ├── app.js                  # Interactive Leaflet map + sidebar logic
-│   └── data.json               # Generated data payload (~790 KB)
+│   ├── index.html              # App shell
+│   ├── style.css               # Dark theme
+│   ├── app.js                  # Map + sidebar logic
+│   └── data.json               # Generated payload (790 KB)
 ├── scripts/
-│   ├── build_data.py           # Data pipeline (CSV → data.json)
-│   ├── ac_config.py              # AC registry (add constituencies here)
-│   ├── alliances.py              # Party → alliance mapping + colors
-│   ├── parse_form20.py           # Form 20 PDF → structured votes CSV
-│   ├── parse_pdf.py              # Form 20 parser (candidate extraction)
-│   ├── parse_booths_ac018.py     # Booth list parser
-│   ├── geocode_booths.py         # Tiered geocoding pipeline
-│   └── compute_ei.py             # Ecological inference (research)
-├── data/
-│   ├── votes_ac018_{2021,2024,2026}.csv    # Station-level vote counts
-│   ├── votes_ac019_{2021,2024,2026}.csv
-│   ├── candidates_ac0{18,19}_{2021,2024,2026}.json   # Candidate metadata
-│   ├── booth_coords_ac0{18,19}.csv         # Geocoded booth coordinates
-│   ├── booths_ac0{18,19}.csv               # Booth station lists
-│   └── street/locality_coords_ac019.csv    # Geocoding reference data
-├── extracted_pdfs/               # Source Electoral Roll PDFs [heavy]
-└── analysis/                     # Intermediate analysis files
+│   ├── build_data.py           # Pipeline: CSV → data.json
+│   ├── ac_config.py            # Constituency registry
+│   ├── alliances.py            # Party → alliance + colors
+│   ├── parse_form20.py         # Form 20 PDF parser
+│   ├── parse_pdf.py            # Candidate extraction
+│   ├── geocode_booths.py       # Tiered geocoding
+│   └── compute_ei.py           # Ecological inference (research)
+├── data/                       # Source CSVs + JSONs
+└── README.md
 ```
 
 ---
 
-## 🚀 Quick Start
+## Quick start
 
-### Option 1: Just Open the HTML
+### Just use the live site
 
-```bash
-# Simply open in a browser
-start site/index.html          # Windows
-open site/index.html           # macOS
-xdg-open site/index.html       # Linux
-```
+Go to **[kaduvan.github.io/voter-patterns](https://kaduvan.github.io/voter-patterns/)** — no setup needed.
 
-### Option 2: Serve Locally (Recommended)
+### Run locally
 
 ```bash
 cd site
@@ -205,74 +158,43 @@ python -m http.server 8000
 # Open http://localhost:8000/
 ```
 
-### Option 3: Rebuild from Source
+### Rebuild from source
 
 ```bash
-# Prerequisites: Python 3.12+, scipy, shapely, numpy
 pip install scipy shapely numpy
-
-# Run the build pipeline
 python scripts/build_data.py
-
 # Output: site/data.json
 ```
 
-### Adding a New Constituency
+### Add a constituency
 
-1. Add an entry to the `ACS` dict in `scripts/ac_config.py`:
-```python
-"AC017": {
-    "name": "Your Constituency",
-    "prefix": "ac017",
-    "center": [13.08, 80.27],
-    "booth_list": "data/booths_ac017.csv",
-    "demographics": "data/demographics_ac017.csv",
-    # ... form20 paths
-}
-```
+1. Add an entry to `scripts/ac_config.py`
+2. Prepare data files: `booth_coords_acXXX.csv`, `votes_acXXX_{year}.csv`, `candidates_acXXX_{year}.json`, demographics CSV
+3. Run `python scripts/build_data.py`
 
-2. Prepare data files: `booth_coords_ac017.csv`, `votes_ac017_{year}.csv`, `candidates_ac017_{year}.json`
-
-3. Rebuild: `python scripts/build_data.py`
-
-The AC selector, donut chart, summaries, and map all update automatically.
+The AC selector, donut chart, summaries, and map update automatically.
 
 ---
 
-## 🎨 Party Colors & Alliances
+## Party colors & alliances
 
-Alliance colors are tuned for the dark map theme and follow established Tamil Nadu political conventions:
+Colors follow established Tamil Nadu political conventions, tuned for the light map theme:
 
 | Alliance | Color | Lead party | Cycles |
 |---|---|---|---|
 | SPA | 🔴 Red `#E02020` | DMK | 2021, 2024, 2026 |
 | NDA | 🟠 Saffron `#FF8C00` | BJP | 2021, 2024 |
-| AIADMK | 🟢 Green `#22A84B` | AIADMK (contested alone 2026) | 2021, 2026 |
+| AIADMK | 🟢 Green `#22A84B` | AIADMK | 2021, 2026 |
 | TVK | 🟡 Gold `#FFB400` | Tamilaga Vettri Kazhagam | 2026 |
 | NTK | 🟢 Dark Green `#1B7F3F` | Naam Tamilar Katchi | All |
 | BSP | 🔵 Blue `#1E40D1` | Bahujan Samaj Party | 2021, 2024, 2026 |
 
-Alliance mappings are **cycle-specific** — parties switch fronts between elections. All mappings are defined in `scripts/alliances.py`.
-
----
-
-## 📈 Why This Matters
-
-Election data in India is published as dense PDFs — hundreds of pages, unsearchable, impossible to analyze at scale without significant technical work. This creates an information asymmetry: parties and well-funded campaigns can afford to process this data, but ordinary citizens, journalists, and grassroots organizations cannot.
-
-This project is one small step toward closing that gap. By transforming official ECI data into an interactive, visual, booth-level platform, we make it possible for anyone to:
-
-- **See how their neighborhood voted** — not just the constituency total
-- **Identify patterns** — which booths swing, which are consistent, where turnout matters
-- **Hold representatives accountable** — with granular, verifiable data
-- **Understand voter demographics** — who lives where, and how that correlates with voting
-
-If you believe in electoral transparency, open government data, and civic empowerment — this is for you.
+Alliance mappings are **cycle-specific** — parties switch fronts between elections. All defined in `scripts/alliances.py`.
 
 ---
 
 ## License
 
-MIT — free to use, modify, and distribute. Attribution appreciated but not required.
+MIT — free to use, modify, and distribute.
 
-Election data © Election Commission of India. Basemap tiles © CARTO, Esri, and OpenStreetMap contributors.
+Election data © Election Commission of India. Electoral Roll data © Election Commission of India. Basemap tiles © CARTO, Esri, and OpenStreetMap contributors.
